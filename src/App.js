@@ -2,16 +2,16 @@ import React from 'react';
 
 import Background from './components/background/background';
 import Hero from './components/hero/hero';
-import Mouse from './components/mouse/mouse';
-
-import './App.css';
+import Projects from './components/projects/projects';
+import Contact from './components/contact/contact';
 
 const App = () => {
   return (
     <main>
-      <Mouse/>
-      <Hero/>
       <Background/>
+      <Hero/>
+      <Projects/>
+      <Contact/>
     </main>
   )
 }

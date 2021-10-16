@@ -3,6 +3,7 @@
     top: -109px;
     left: -109px;
     
+    opacity: 0;
     mix-blend-mode: difference;
     
     pointer-events: none;

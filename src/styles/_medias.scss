@@ -1,0 +1,26 @@
+@media screen and (min-width: 518px) {
+    .hero .top-right .socials {
+        display: inherit;
+    }
+
+    .hero .bottom-left {
+        left: 30px;
+        bottom: 0;
+
+        padding: 4vw 8vw;
+    }
+
+    .subtitle {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1115px) {
+    main {
+        align-items: stretch !important;
+    }
+
+    .projects .project-wrapper {
+        justify-content: unset;
+    }
+}

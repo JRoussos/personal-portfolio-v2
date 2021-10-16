@@ -1,0 +1,19 @@
+@keyframes scroll-progress-animation {
+    0%   { left: -100px }
+    50%  { left: 0px    }
+    100% { left: 100px  }
+}
+
+@keyframes make-noise {
+    0%   { transform: translate(20%, -15%) }
+    10%  { transform: translate(-20%, -10%)}
+    20%  { transform: translate(20%, -5%)  }
+    30%  { transform: translate(-20%, 5%)  }
+    40%  { transform: translate(20%, 10%)  }
+    50%  { transform: translate(-20%, 15%) }
+    60%  { transform: translate(20%, 15%)  }  
+    70%  { transform: translate(-20%, 10%) }
+    80%  { transform: translate(20%, 5%)   }
+    90%  { transform: translate(-20%, -5%) }
+    100% { transform: translate(20%, -15%) }
+}
