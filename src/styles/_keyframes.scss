@@ -1,7 +1,17 @@
+@keyframes firstLoad {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 @keyframes scroll-progress-animation {
     0%   { left: -100px }
     50%  { left: 0px    }
     100% { left: 100px  }
+}
+
+@keyframes loading-card-animation {
+    0%   { background-position: -600px }
+    100% { background-position: 600px }
 }
 
 @keyframes make-noise {

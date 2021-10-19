@@ -1,17 +1,25 @@
-@media screen and (min-width: 518px) {
+@media screen and (max-width: 518px) {
+    .hero .top-right p::after {
+        width: 100%;
+    }
+
     .hero .top-right .socials {
-        display: inherit;
+        display: none;
     }
 
     .hero .bottom-left {
-        left: 30px;
-        bottom: 0;
+        left: 0;
+        bottom: -115px;
 
-        padding: 4vw 8vw;
+        padding: 0;
     }
 
-    .subtitle {
-        text-align: center;
+    .projects {
+        padding-top: 35vh !important;
+    }
+
+    .hero .center .subtitle {
+        text-align: inherit;
     }
 }
 

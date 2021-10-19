@@ -1,18 +1,22 @@
 import React from 'react';
 
-import Background from './components/background/background';
 import Hero from './components/hero/hero';
 import Projects from './components/projects/projects';
 import Contact from './components/contact/contact';
 
+import SmoothScroll, { getScrollValue } from './utils/SmoothScroll';
+import Background from './components/background/background';
+
 const App = () => {
   return (
-    <main>
-      <Background/>
-      <Hero/>
-      <Projects/>
-      <Contact/>
-    </main>
+    <React.Fragment>
+      <Background getScrollValue={getScrollValue}/>
+      <SmoothScroll>
+        <Hero/>
+        <Projects/>
+        <Contact/>
+      </SmoothScroll>
+    </React.Fragment>
   )
 }
 

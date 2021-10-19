@@ -2,7 +2,7 @@ import React from 'react';
 import { useFrame } from '@react-three/fiber'
 import { Texture } from 'three';
 
-const size = 64
+const size = 2048
 let trail = []
 
 const easeOutSine = (currentTime, startValue, changeInValue, duration) => {
@@ -33,10 +33,10 @@ const Interactivity = ({ width, height, maxAge=60}) => {
 		intensity *= point.force
 
 		const radius = size * 0.15 * intensity
-		const grd = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, radius)
+		const grd = ctx.createRadialGradient(pos.x, pos.y, radius * 0.25, pos.x, pos.y, radius)
 
 		grd.addColorStop(0, 'rgba(255, 255, 255, 0.2)')
-		grd.addColorStop(1, 'rgba(0, 0, 0, 0.0)')
+		grd.addColorStop(1, 'rgba(	0,	 0,	  0, 0.0)')
 
 		ctx.beginPath()
 		ctx.fillStyle = grd

@@ -1,7 +1,16 @@
 import React, { useRef, useLayoutEffect, useCallback } from 'react';
 import { gsap } from 'gsap';
 
-import './mouse-style.css';
+const cursor_styles = {
+    position: 'fixed',
+    top: '-109px',
+    left: '-109px',
+    opacity: 0,
+    mixBlendMode: 'difference',
+    pointerEvents: 'none',
+    willChange: 'transform',
+    zIndex: 90
+}
 
 const Mouse = () => {
     const mousePreviousPosition = useRef({x: 0, y: 0})
@@ -67,7 +76,7 @@ const Mouse = () => {
     }, [onTick, handleMouseMove, handleMouseLeave])
 
     return (
-        <svg id="cursor" width="220" height="220" fill="none" viewBox="0 0 220 220" >
+        <svg id="cursor" width="220" height="220" fill="none" viewBox="0 0 220 220" style={cursor_styles}>
             {/* <rect id="rect" x="200" y="110" width="120" height="25" rx="10" strokeWidth="2px" stroke="white" strokeOpacity="0.8"/> */}
             <circle id="circle" cx="110" cy="110" r="20" strokeWidth="2px" stroke="white" strokeOpacity="0.8"/>
         </svg>

@@ -26,20 +26,20 @@ uniform float uProgress;
 uniform float uScroll;
 
 uniform sampler2D uColorTexture; 
-// uniform sampler2D uInteractiveTexture; 
+uniform sampler2D uInteractiveTexture; 
 
 void main() {
   vec2 newUv = vUv;
-  vec2 p = 2.0 * newUv - vec2(0.5); // normalize the uvs to be from 0 to 2
+  vec2 p = 2.0 * newUv - vec2(1.0); // normalize the uvs to be from 0 to 2
   // vec2 p = 3.0 * newUv - vec2(1.5);
   
-  p += 0.3 * sin(uScroll * 1.35 + 1.0 * p.yx + 0.31 * uTime + vec2(1.2, 8.2)) - uScroll * 0.325;
-  p += 0.3 * cos(uScroll * 1.35 + 3.0 * p.yx + 0.24 * uTime + vec2(5.8, 1.6)) - uScroll * 0.325;
-  p += 0.3 * sin(uScroll * 1.35 + 5.0 * p.yx + 0.57 * uTime + vec2(4.3, 5.4)) - uScroll * 0.325;
-  p += 0.3 * cos(uScroll * 1.35 + 7.0 * p.yx + 0.16 * uTime + vec2(9.4, 3.7)) - uScroll * 0.325;
+  p += 0.35 * sin(uScroll * 1.35 + 1.0 * p.yx + 0.31 * uTime + vec2(1.2, 8.2)) - uScroll * 0.25;
+  p += 0.35 * cos(uScroll * 1.35 + 3.0 * p.yx + 0.24 * uTime + vec2(5.8, 1.6)) - uScroll * 0.25;
+  p += 0.35 * sin(uScroll * 1.35 + 5.0 * p.yx + 0.57 * uTime + vec2(4.3, 5.4)) - uScroll * 0.25;
+  p += 0.35 * cos(uScroll * 1.35 + 7.0 * p.yx + 0.16 * uTime + vec2(9.4, 3.7)) - uScroll * 0.25;
 
-  // float mouseTrail = texture2D(uInteractiveTexture, newUv).r * 0.4;
-  // newUv = vec2(length(p) * uProgress + mouseTrail, 0.5);
+  // float mouseTrail = texture2D(uInteractiveTexture, newUv).r * mix(1.0, 0.25, uProgress);
+  // newUv = vec2(length(p) * uProgress + min(mouseTrail, 0.8), 0.5);
   newUv = vec2(length(p) * uProgress, 0.5);
 
   // vec3 text = mix(color, image, sin(uScroll * PI));

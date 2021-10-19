@@ -7,13 +7,14 @@ $font-color: #fff;
 
     flex-direction: column;
 
-    position: relative;
+    margin: 25vh 0;
 
-    button {
-        margin: 15vh 0;
-        padding: 20px 100px;
+    button {      
+        max-width: 600px;
+        width: 80vw;
 
-        border: none;
+        padding: 20px;
+
         outline: none;
 
         border-radius: 6px;
@@ -24,6 +25,12 @@ $font-color: #fff;
         font-size: 16px;
         font-weight: 500;
         color: rgba($color: #fff, $alpha: 0.8);
+
+        transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    }
+
+    .touched {
+        transform: scale(0.96);
     }
 
     .mail_container {

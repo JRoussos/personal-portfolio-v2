@@ -21,7 +21,7 @@ const Hero = () => {
                 </div>
                 <div className="bottom-left">
                     <div id="also">
-                        <p>also I enjoy exploring and learing new stuff, working out and drinking coffe</p>
+                        <p>Also I enjoy exploring and learing new stuff, working out and I love coffe</p>
                     </div>
                 </div>
             </div>

@@ -77,7 +77,18 @@
         .vertical-group {
             scroll-snap-align: center;
         }
-    
+
+        .loading-card {
+            background-size: 600px;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(90deg, rgba($color: #111, $alpha: 0.0) 0, #222222b3 300px, rgba($color: #111, $alpha: 0.0) 600px);
+            animation: loading-card-animation 3s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+            
+            div {
+                visibility: hidden;
+            }
+        }
+
         .repo-container {
             padding: 14px;
             margin: 20px 10px;
@@ -89,7 +100,7 @@
             border: 2px solid #30363d;
     
             transition: border .25s cubic-bezier(0.39, 0.575, 0.565, 1);
-            background: rgba($color: #111, $alpha: 0.85);
+            background-color: rgba($color: #111, $alpha: 0.85);
 
             &:hover {
                 border-color: #50575e;
@@ -130,11 +141,11 @@
                 
                 min-height: 32px;
 
-                // display: -webkit-box;
-                // -webkit-line-clamp: 2;
-                // -webkit-box-orient: vertical;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
                 
-                // overflow: hidden;
+                overflow: hidden;
             }
     
             .repo-description {

@@ -1,12 +1,11 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import languageColor from '../../contexts/language-colors.json'
-import repos from './repos.json'
 import './project-style.scss'
 
 const Card = ({ repo }) => {
     return(
-        <div className="repo-container">
+        <div className={repo.loading ? "repo-container loading-card" : "repo-container"}>
             <div className="repo-header">
                 <svg height="16" viewBox="0 0 16 16" version="1.1" width="16">
                     <path fillRule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path>
@@ -38,26 +37,33 @@ const Card = ({ repo }) => {
 }
 
 const Projects = () => {
-    const innerSliderRef = useRef()
-    const [ repositories, updateRepositories ] = useState(repos.items)
+    const loadingReposArray = [...new Array(6)].map((_, i) => ({id: i*Math.random(), loading: true}))
 
+    const [ repositories, updateRepositories ] = useState(loadingReposArray)
     const verticalGroups = [ 2,4,6 ]
 
-    // const getRepos = useCallback( (sort='updated', order='desc') => {
-    //     const url = `https://api.github.com/search/repositories?q=user:JRoussos&sort=${sort}&order=${order}`
+    useEffect(() => {
+        const getRepos = (sort='updated', order='desc') => {
+            const areCookiesEnabled = navigator.cookieEnabled
+            const url = `https://api.github.com/search/repositories?q=user:JRoussos&sort=${sort}&order=${order}`
 
-    //     fetch(url).then(res => res.json())
-    //     .then(data => updateRepositories(data.items.filter(r => r.name !== "JRoussos")))
-    //     .catch( error => console.warn("Fetch Error: ", error))
-    // }, [])
+            const restoredRepos = areCookiesEnabled ? JSON.parse(sessionStorage.getItem('repositories')) ?? [] : []
+            if( restoredRepos.length > 0 ) {
+                updateRepositories(restoredRepos)
+            }else{
+                fetch(url).then(res => res.json())
+                .then(data => {
+                    const returnedRepos = data.items.filter(r => r.name !== "JRoussos")
 
-    // useEffect(() => getRepos(), [getRepos])
+                    sessionStorage.setItem('repositories', JSON.stringify(returnedRepos))
+                    updateRepositories(returnedRepos)
+                })
+                .catch( error => console.warn("Fetch Error: ", error))
+            }
+        }
 
-    const handleHorizontalScroll = useCallback( e => {
-        const slideNumber = (e.target.scrollLeft/(e.target.scrollWidth - e.target.offsetWidth))
-        
-        innerSliderRef.current.style.transform = `scaleX(${slideNumber})`
-    }, [innerSliderRef])
+        getRepos()
+    }, [])
 
     return (
         <div className="projects">

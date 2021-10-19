@@ -5,7 +5,7 @@ import './contact-style.scss'
 const Contact = () => {
     return (
         <div className="contact">
-            <button>CONTACT</button>
+            <button onTouchEnd={e => e.target.classList.remove('touched')} onTouchStart={e => e.target.classList.add('touched')}>CONTACT</button>
             {/* <div className="mail_container">
                 <a id="send_mail" href="mailto:jroussosdev@gmail.com">jroussosdev@gmail.com</a>
             </div>
