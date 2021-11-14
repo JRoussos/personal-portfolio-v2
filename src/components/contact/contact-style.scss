@@ -6,31 +6,25 @@ $font-color: #fff;
     align-items: center;
 
     flex-direction: column;
+    height: 100vh;
 
-    margin: 25vh 0;
+    .back-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
 
-    button {      
-        max-width: 600px;
-        width: 80vw;
+        margin: 40px;
+        display: block;
 
-        padding: 20px;
-
-        outline: none;
-
-        border-radius: 6px;
-        border: 2px solid #30363d;
-        background: rgba($color: #111, $alpha: 0.8);
-        
         font-family: 'Rubik', sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        color: rgba($color: #fff, $alpha: 0.8);
+        font-size: 18px;
+        font-weight: 400;
+        
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba($color: $font-color, $alpha: 0.8);
 
-        transition: transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
-    }
-
-    .touched {
-        transform: scale(0.96);
+        cursor: pointer;
     }
 
     .mail_container {
@@ -51,6 +45,10 @@ $font-color: #fff;
             
             opacity: 0.9;
             width: 100%;
+                            
+            br {
+                display: none;
+            }
         }
 
         a {
@@ -62,19 +60,6 @@ $font-color: #fff;
             color: rgba($color: $font-color, $alpha: 0.8);
             text-decoration: none;
             font-size: clamp(30px, 8vw, 4rem);
-
-            &::after {
-                content: "";
-                
-                position: absolute;
-                bottom: -5px;
-                left: 0;
-
-                width: 100%;
-                height: 1px;
-
-                background-color: rgba($color: $font-color, $alpha: 0.8);
-            }
         }
     }
 
@@ -82,11 +67,12 @@ $font-color: #fff;
         display: flex;
         margin-top: 40px;
 
-        p {
+        a {
             font-family: 'Rubik', sans-serif;
-            font-size: 18px;
+            font-size: clamp(16px, 4.5vw, 18px);
             font-weight: 400;
             
+            text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: rgba($color: $font-color, $alpha: 0.8);
@@ -95,24 +81,6 @@ $font-color: #fff;
             margin: 0 2px;
 
             cursor: pointer;
-
-            &:hover::after {
-                width: 100%;
-            }
-
-            &::after {
-                content: "";
-                
-                position: absolute;
-                bottom: -10px;
-                left: 0;
-
-                width: 0%;
-                height: 2px;
-
-                transition: width .25s cubic-bezier(0.39, 0.575, 0.565, 1);
-                background-color: rgba($color: $font-color, $alpha: 0.6);
-            }
         }
 
         span {
@@ -120,6 +88,10 @@ $font-color: #fff;
             color: rgba($color: $font-color, $alpha: 0.6);
 
             padding: 0 10px;
+
+            &:first-child {
+                display: none;
+            }
         }
     }
 }

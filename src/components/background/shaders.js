@@ -1,53 +1,53 @@
-const vertex = `
+export const vertex = /* glsl */ `
 varying vec2 vUv;
+varying vec3 vPosition;
 
 uniform float uTime;
 uniform float uProgress;
-
-// uniform sampler2D uRayTexture;
 
 void main() {
   vUv = uv;
-  // float rt = texture2D(uRayTexture, vUv).r;
+  vPosition = position;
   
-  vec3 newPosition = position;
-
-  // newPosition += vec3(rt * 2.0);
-
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }`
 
-const fragment = `
-const float PI = 3.1415926535897932384626433832795;
+export const fragment = /* glsl */ `
 varying vec2 vUv;
+varying vec3 vPosition;
 
+uniform vec2  uResolution;
 uniform float uTime;
 uniform float uProgress;
-uniform float uScroll;
 
 uniform sampler2D uColorTexture; 
-uniform sampler2D uInteractiveTexture; 
+uniform sampler2D uInteractiveTexture;
+
+vec4 blur(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
+  vec4 color = vec4(0.0);
+  vec2 off1 = vec2(1.3333333333333333) * direction;
+
+  color += texture2D(image, uv) * 0.29411764705882354;
+  color += texture2D(image, uv + (off1 / resolution)) * 0.35294117647058826;
+  color += texture2D(image, uv - (off1 / resolution)) * 0.35294117647058826;
+  
+  return color; 
+}
 
 void main() {
   vec2 newUv = vUv;
-  vec2 p = 2.0 * newUv - vec2(1.0); // normalize the uvs to be from 0 to 2
-  // vec2 p = 3.0 * newUv - vec2(1.5);
-  
-  p += 0.35 * sin(uScroll * 1.35 + 1.0 * p.yx + 0.31 * uTime + vec2(1.2, 8.2)) - uScroll * 0.25;
-  p += 0.35 * cos(uScroll * 1.35 + 3.0 * p.yx + 0.24 * uTime + vec2(5.8, 1.6)) - uScroll * 0.25;
-  p += 0.35 * sin(uScroll * 1.35 + 5.0 * p.yx + 0.57 * uTime + vec2(4.3, 5.4)) - uScroll * 0.25;
-  p += 0.35 * cos(uScroll * 1.35 + 7.0 * p.yx + 0.16 * uTime + vec2(9.4, 3.7)) - uScroll * 0.25;
+  vec2 p = 2.0 * newUv - vec2(1.0); // normalize the uvs from 0 to 2
 
-  // float mouseTrail = texture2D(uInteractiveTexture, newUv).r * mix(1.0, 0.25, uProgress);
-  // newUv = vec2(length(p) * uProgress + min(mouseTrail, 0.8), 0.5);
-  newUv = vec2(length(p) * uProgress, 0.5);
+  p += 0.83 * cos(2.8 * p.yx - 0.21 * uTime + vec2(1.2, 8.2)); //3
+  p += 0.53 * sin(1.7 * p.yx - 0.14 * uTime + vec2(5.8, 1.6)); //2
+  p += 0.23 * cos(3.2 * p.yx - 0.47 * uTime + vec2(4.3, 5.4)); //4
+  p += 0.13 * sin(4.5 * p.yx - 0.06 * uTime + vec2(9.4, 3.7)); //5
 
-  // vec3 text = mix(color, image, sin(uScroll * PI));
+  float mouseTrail = blur(uInteractiveTexture, newUv, uResolution, vec2(12.0)).r * 0.2;
+  newUv = vec2(length(p) * uProgress + mouseTrail);
+
   vec3 text = texture2D(uColorTexture, newUv).rgb * 0.75;
-  if ( text.r + text.g + text.b <= 0.5 ) discard;  
+  if ( text.r + text.g + text.b <= 0.5 ) discard;
 
   gl_FragColor = vec4(text, 1.0);
-}
-`
-
-export { vertex, fragment }
+}`

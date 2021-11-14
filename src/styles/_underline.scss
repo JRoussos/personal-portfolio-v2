@@ -1,0 +1,37 @@
+@import './variables';
+
+.underline {
+    position: relative;
+
+    &::after {
+        content: "";
+        
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+
+        width: 100%;
+        height: $underline-height;
+
+        transition: width .25s cubic-bezier(0.39, 0.575, 0.565, 1);
+        background-color: rgba( 255, 255, 255, 0.8);
+    }
+}
+
+.line-hover {
+    &::after{
+        width: 0%;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 530px){
+    .keep-line-on-mobile {
+        &::after{
+            width: 100% !important;
+        }   
+    }
+}

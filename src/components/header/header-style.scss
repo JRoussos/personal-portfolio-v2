@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+
+header {
+    position: absolute;
+    right: 0;
+
+    display: flex;
+    margin: 40px;
+
+    z-index: 2;
+
+    .active::after {
+        width: 100%;
+    }
+
+    p, a {
+        font-family: 'Rubik', sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba( 255, 255, 255, 0.8);
+
+        position: relative;
+        margin: 0 2px;
+
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .socials {
+        display: inline-flex;
+        
+        span {
+            font-size: 12px;
+            color: rgba( 255, 255, 255, 0.6);
+
+            padding: 0 8px;
+        }
+    }
+}

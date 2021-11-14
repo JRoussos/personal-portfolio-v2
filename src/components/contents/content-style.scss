@@ -1,0 +1,9 @@
+.fadeIn {
+    opacity: 0;
+    animation: fadeIn 0.65s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.5s forwards;
+}
+
+.fadeOut {
+    opacity: 1;
+    animation: fadeOut 0.65s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
+}

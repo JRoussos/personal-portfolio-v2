@@ -2,7 +2,7 @@ import React from 'react';
 import { useFrame } from '@react-three/fiber'
 import { Texture } from 'three';
 
-const size = 2048
+const size = 32
 let trail = []
 
 const easeOutSine = (currentTime, startValue, changeInValue, duration) => {
@@ -14,12 +14,12 @@ canvas.width = size
 canvas.height = size
 
 const ctx = canvas.getContext('2d')
-ctx.fillStyle = 'black'
+ctx.fillStyle = '#000000'
 ctx.fillRect(0, 0, size, size)
 
 export const texture = new Texture(canvas)
 
-const Interactivity = ({ width, height, maxAge=60}) => {
+const Interactivity = ({maxAge=60}) => {
     const drawTouch = point => {
         const pos = {
             x: point.x * size,
@@ -58,7 +58,7 @@ const Interactivity = ({ width, height, maxAge=60}) => {
 
 		trail.push({ x: point.x, y: point.y, age: 0, force })
 	}
-
+	
     useFrame( () => {
         ctx.fillStyle = 'black'
         ctx.fillRect(0, 0, size, size)
@@ -82,7 +82,7 @@ const Interactivity = ({ width, height, maxAge=60}) => {
 
     return(
 		<mesh>
-			<planeBufferGeometry attach="geometry" args={[width, height]}/>
+			<planeBufferGeometry attach="geometry"/>
 			<meshBasicMaterial attach="material" transparent={true} opacity={0.0}/>
 		</mesh>
     )

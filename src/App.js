@@ -1,22 +1,23 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 
-import Hero from './components/hero/hero';
-import Projects from './components/projects/projects';
-import Contact from './components/contact/contact';
-
-import SmoothScroll, { getScrollValue } from './utils/SmoothScroll';
+import Contents from './components/contents/contents';
 import Background from './components/background/background';
+
+import Mouse from './utils/mouse';
+
+import { StateProvider } from './contexts/store';
 
 const App = () => {
   return (
-    <React.Fragment>
-      <Background getScrollValue={getScrollValue}/>
-      <SmoothScroll>
-        <Hero/>
-        <Projects/>
-        <Contact/>
-      </SmoothScroll>
-    </React.Fragment>
+    <StateProvider>
+      { isMobile || <Mouse/> }
+      <BrowserRouter>
+        <Background/>
+        <Contents/>
+      </BrowserRouter>
+    </StateProvider>
   )
 }
 

@@ -11,7 +11,7 @@ const parent_style = {
 }
 
 const config = {
-    velocity: 0.1,
+    velocity: 0.08,
     current: 0,
     previous: 0,
     requestScrollEvent: 0
@@ -40,7 +40,7 @@ const SmoothScroll = ({ children }) => {
             config.requestScrollEvent = 0
         }
 
-        scrollableContainerRef.current.style.transform = `translateY(-${config.previous}px)`;
+        scrollableContainerRef.current.style.transform = `translate3d(0, -${config.previous}px, 0)`
 
         SCROLL_ID.current = config.requestScrollEvent > 0 ? requestAnimationFrame(smoothScrollingHandler) : null
     }, [SCROLL_ID])

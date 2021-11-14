@@ -43,9 +43,10 @@ const Projects = () => {
     const verticalGroups = [ 2,4,6 ]
 
     useEffect(() => {
-        const getRepos = (sort='updated', order='desc') => {
+        const getRepos = (number=7, sort='updated', order='desc') => {
             const areCookiesEnabled = navigator.cookieEnabled
-            const url = `https://api.github.com/search/repositories?q=user:JRoussos&sort=${sort}&order=${order}`
+            const url = `https://api.github.com/search/repositories?q=user:JRoussos${number ? ("&per_page="+number) : ""}&sort=${sort}&order=${order}`
+            console.log(url)
 
             const restoredRepos = areCookiesEnabled ? JSON.parse(sessionStorage.getItem('repositories')) ?? [] : []
             if( restoredRepos.length > 0 ) {
@@ -55,14 +56,14 @@ const Projects = () => {
                 .then(data => {
                     const returnedRepos = data.items.filter(r => r.name !== "JRoussos")
 
-                    sessionStorage.setItem('repositories', JSON.stringify(returnedRepos))
+                    areCookiesEnabled && sessionStorage.setItem('repositories', JSON.stringify(returnedRepos))
                     updateRepositories(returnedRepos)
                 })
                 .catch( error => console.warn("Fetch Error: ", error))
             }
         }
 
-        getRepos()
+        getRepos(0)
     }, [])
 
     return (
