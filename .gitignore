@@ -11,6 +11,14 @@
 # production
 /build
 
+# server
+/server/.env
+
+/server/app.js
+/server/index.bak.js
+/server/t.js
+/server/test.js
+
 # misc
 .DS_Store
 .env.local
