@@ -1,6 +1,6 @@
 import { Texture } from 'three'
 
-export const makeTexture = (width=window.innerWidth, height=window.innerHeight, colors=[]) => {
+export const makeTexture = (colors, width=window.innerWidth, height=window.innerHeight) => {
     const canvas = document.createElement('canvas')
     canvas.width = width
     canvas.height = height
@@ -16,12 +16,7 @@ export const makeTexture = (width=window.innerWidth, height=window.innerHeight, 
 
     const grd = ctx.createLinearGradient(startPointX, 0, startPointX + rectWidth, 0)
 
-    const gradientColors = colors.length ? colors : [
-        {offset: 0.00, color: '#7B80E4'},
-        {offset: 0.26, color: '#DB30AA'},
-        {offset: 0.60, color: '#F42F1E'},
-        {offset: 1.00, color: '#F6B041'},
-    ]
+    const gradientColors = colors
 
     gradientColors.forEach( grdColor => {
         grd.addColorStop(grdColor.offset, grdColor.color)

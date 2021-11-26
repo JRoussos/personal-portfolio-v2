@@ -21,6 +21,7 @@ $font-color: #fff;
         font-weight: 400;
         
         text-transform: uppercase;
+        text-decoration: none;
         letter-spacing: 1px;
         color: rgba($color: $font-color, $alpha: 0.8);
 
@@ -39,7 +40,7 @@ $font-color: #fff;
         p {
             font-family: 'Rubik', sans-serif;
             font-weight: 400;
-            font-size: 14px;
+            font-size: 17px;
 
             color: rgba($color: $font-color, $alpha: 0.8);
             
@@ -84,6 +85,7 @@ $font-color: #fff;
         }
 
         span {
+            line-height: 18px;
             font-size: 12px;
             color: rgba($color: $font-color, $alpha: 0.6);
 

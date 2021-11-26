@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
 import { Texture } from 'three';
 
@@ -73,12 +73,17 @@ const Interactivity = ({maxAge=60}) => {
         texture.needsUpdate = true
     })
 
-	window.addEventListener('pointermove', e => {
-		const x = e.clientX / window.innerWidth
-		const y = Math.abs(1 - (e.clientY / window.innerHeight))
+	useEffect(() => {
+		const handlePointerMove = e => {
+			const x = e.clientX / window.innerWidth
+			const y = Math.abs(1 - (e.clientY / window.innerHeight))
+	
+			addTouch({x, y})
+		}
 
-		addTouch({x, y})
-	})
+		document.addEventListener('pointermove', handlePointerMove)
+		return () => document.removeEventListener('pointermove', handlePointerMove)
+	}, [])
 
     return(
 		<mesh>

@@ -6,17 +6,19 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { makeTexture } from './makeTexture'
 import { fragment, vertex } from './shaders'
 
+import { red_blue } from './colors'
+
 const Animation = ({ location, texture }) => {
     const { viewport } = useThree()
     const shaderMaterialRef = useRef()
 
-    const { uTime, uProgress, uTexture, uInteractiveTexture } = useMemo(() => {
-        const uTime     = { value: 0.0 }
-        const uProgress = { value: 0.0 }
-        const uTexture  = { value: makeTexture() }
+    const { uTime, uProgress, uColorTexture, uInteractiveTexture } = useMemo(() => {
+        const uTime               = { value: 0.0 }
+        const uProgress           = { value: 0.0 }
+        const uColorTexture       = { value: makeTexture(red_blue) }
         const uInteractiveTexture = { value: texture }
 
-        return { uTime, uProgress, uTexture, uInteractiveTexture }
+        return { uTime, uProgress, uColorTexture, uInteractiveTexture }
     }, [texture])
 
     useEffect(() => {
@@ -35,7 +37,7 @@ const Animation = ({ location, texture }) => {
 
     const uniforms = {
         uTime: uTime,
-        uColorTexture: uTexture,
+        uColorTexture: uColorTexture,
         uProgress: uProgress,
         uInteractiveTexture: uInteractiveTexture,
         uResolution: { value: {x: window.innerWidth, y: window.innerHeight} }

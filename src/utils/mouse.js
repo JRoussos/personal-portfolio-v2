@@ -88,14 +88,18 @@ const Mouse = () => {
 
         gsap.ticker.add(onTick)
         
-        document.addEventListener('mousemove', handleMouseMove)
-        document.addEventListener('mouseleave', handleMouseLeave)
+        window.addEventListener('mousemove', handleMouseMove)
+        window.addEventListener('mouseout', handleMouseLeave)
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove)
+            window.removeEventListener('mouseout', handleMouseLeave)                
+        }
 
     }, [onTick, handleMouseMove, handleMouseLeave])
 
     return (
         <svg id="cursor" width="220" height="220" fill="none" viewBox="0 0 220 220" style={cursor_styles}>
-            {/* <rect id="rect" x="200" y="110" width="120" height="25" rx="10" strokeWidth="2px" stroke="white" strokeOpacity="0.8"/> */}
             <circle id="circle" cx="110" cy="110" r="30" strokeWidth="2px" stroke="white" strokeOpacity="0.8"/>
         </svg>
     )

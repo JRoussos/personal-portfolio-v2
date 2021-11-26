@@ -1,6 +1,5 @@
 const initialState = {
     isPlaying: false,
-    isBackgroundVisible: true,
     email: 'jroussosdev@gmail.com',
     socials: [
         { name: 'tw', title: 'Twitter', url: 'https://twitter.com/giannhs_r' },
@@ -13,8 +12,6 @@ const reducer = (state, action) => {
     switch (action.type) {
         case 'CHANGE_PLAYING_STATUS':
             return { ...state, isPlaying: action.isPlaying }
-        case 'CHANGE_BACKGROUND_VISIBILITY':
-            return { ...state, isBackgroundVisible: action.isBackgroundVisible }
         default:
             throw new Error('Reducer Error');
     }

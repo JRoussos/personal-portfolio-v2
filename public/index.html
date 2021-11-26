@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
@@ -16,14 +15,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-    <!-- --- -->
-    <link rel="preload" href="/static/media/EksellDisplay-Large.10eb0b86.woff" as="font" type="font/otf" crossorigin>
+    <!-- preloads -->
+    <link rel="preload" href="/static/media/EksellDisplay-Large.10eb0b86.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" as="style">
     <link rel="preload" href="/static/media/grain.51a0dd17.png" as="image" type="image/png">
-    <link rel="preload" href="/static/media/spotify-white.ecd54051.png" as="image" type="image/png">
+    <!-- preconnects -->
+    <link rel="preconnect" href="https://spotify-proxy-server.herokuapp.com/">
+    <link rel="preconnect" href="https://api.github.com/">
+    <!-- metas -->
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="theme-color" content="#111111"/>
     <meta name="description" content="I'm a passionate front-end developer from Greece. I'm always interested in learning new technologies and crafting amazing designs."/>
     <meta name="keywords" content="john roussos, portfolio, website designer, frontend, backend, fullstack, developer, syros, cyclades, developers in greece, developers in syros, ui/ux, frontend developer"/>
+    <meta name="author" content="John Roussos"/>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -40,7 +45,7 @@
     -->
     <title>John Roussos | Developer</title>
   </head>
-  <body>
+  <body style="background: #111111;">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

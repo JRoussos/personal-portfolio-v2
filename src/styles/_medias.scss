@@ -1,3 +1,9 @@
+@media screen and (max-height: 500px) {
+    #more-info {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 340px) {
     main {
         .center {
@@ -6,6 +12,21 @@
             }
             .subtitle {
                 font-size: 14px;
+            }
+        }
+        .contact {
+            .mail_container {
+                a {
+                    font-size: clamp(24px, 6vw, 6rem);
+                }
+            }
+            .social {
+                span {
+                    line-height: 14px;
+                }
+                a {
+                    font-size: 14px;
+                }
             }
         }
     }
@@ -26,6 +47,7 @@
         .center {
             align-items: flex-start;
             .subtitle {
+                font-size: 15px;
                 text-align: inherit;
             }
         }
@@ -37,6 +59,7 @@
             }
             .mail_container > p{
                 margin: 30px;
+                font-size: 15px;
                 br {
                     display: unset;
                 }
@@ -45,21 +68,18 @@
     }
 }
 
-@media screen and (max-width: 1200px) and (min-width: 1000px){
+@media screen and (max-width: 850px){
     main {
-        margin: 0 5vw !important;
-        align-items: stretch !important;
-    }
-
-    .projects .project-wrapper {
-        justify-content: unset;
+        .center {
+            #interests {
+                display: none !important;
+            }
+        }
     }
 }
 
 @media screen and (max-width: 1000px) and (min-width: 530px) {
     main {
-        margin: 0 1vw !important;
-
         .center #more-info {
             justify-content: center;
         }

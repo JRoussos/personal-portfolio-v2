@@ -31,9 +31,11 @@ const Title = () => {
         <React.Fragment>
             <Header/>
             <div ref={centerRef} className="center">
-                <h1>JOHN ROUSSOS</h1>
-                <p className="subtitle">I'm a front end developer, well..{width > 518 || <br/>}most of the time.</p>
-                {width > 850 && <MoreInfo {...infoProps}/>}
+                <div>
+                    <h1>JOHN ROUSSOS</h1>
+                    <p className="subtitle">I'm a front end developer, {width > 518 || <br/>}most of the time</p>
+                </div>
+                {width > 530 && <MoreInfo {...infoProps}/>}
             </div>
         </React.Fragment>
     )

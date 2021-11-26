@@ -1,12 +1,11 @@
 import React, { useRef, useLayoutEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { useStore } from '../../contexts/store'
 import useWindowSize from '../../utils/useWindowSize'
 import './contact-style.scss'
 
 const Contact = () => {
-    const history = useHistory()
     const { height } = useWindowSize()
 
     const { socials, email } = useStore().state
@@ -16,12 +15,11 @@ const Contact = () => {
         contactRef.current.style.height = `${height}px`
     },[height])
 
-    const handleBackClick = () => history.replace('/')
     const github = { name: 'gh', title: 'GitHub', url: 'https://github.com/JRoussos' }
 
     return (
         <div ref={contactRef} className="contact">
-            <span className="back-btn underline line-hover keep-line-on-mobile link-element" onClick={handleBackClick}>Go Back</span>
+            <Link className="back-btn underline line-hover keep-line-on-mobile link-element" to="/">Go Back</Link>
             <div className="mail_container">
                 <p>Find me anywhere.<br/> Talk to me about anything.</p>
                 <a id="send_mail" className="underline link-element" href={`mailto:${email}`}>{email}</a>
