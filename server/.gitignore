@@ -1,0 +1,11 @@
+# folders
+/node_modules
+
+# misc
+.env
+
+# files
+app.js
+index.bak.js
+t.js
+test.js
