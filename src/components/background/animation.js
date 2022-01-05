@@ -40,7 +40,6 @@ const Animation = ({ location, texture }) => {
         uColorTexture: uColorTexture,
         uProgress: uProgress,
         uInteractiveTexture: uInteractiveTexture,
-        uResolution: { value: {x: window.innerWidth, y: window.innerHeight} }
     }
 
     return(
