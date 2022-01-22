@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
 import { Texture } from 'three';
 
@@ -30,6 +30,7 @@ let rippleSize = img.width
 export const texture = new Texture(canvas)
 
 const Interactivity = ({maxAge=60}) => {
+	// eslint-disable-next-line no-unused-vars
     const drawTouch = point => {
         const pos = {
             x: point.x * size.w,
@@ -54,6 +55,7 @@ const Interactivity = ({maxAge=60}) => {
 		ctx.fill()
 	}
 
+	// eslint-disable-next-line no-unused-vars
 	const drawTexture = point => {
 		const pos = {
             x: point.x * size.w,
@@ -66,7 +68,7 @@ const Interactivity = ({maxAge=60}) => {
 
 		intensity *= point.force
 
-		let radius = rippleSize * 0.5 * intensity
+		let radius = rippleSize * 0.35 * intensity
 		radius = radius < 50 ? 0 : radius
 
 		ctx.drawImage(img, pos.x - radius/2, pos.y - radius/2, radius, radius)
@@ -88,7 +90,7 @@ const Interactivity = ({maxAge=60}) => {
 	}
 	
     useFrame( () => {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)' // trail fade over time
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.2)' // trail fade over time
 		ctx.fillRect(0, 0, size.w, size.h)
 
         trail.forEach( (point, index, array) => {
@@ -123,12 +125,7 @@ const Interactivity = ({maxAge=60}) => {
 		}
 	}, [])
 
-    return(
-		<mesh>
-			<planeBufferGeometry attach="geometry"/>
-			<meshBasicMaterial attach="material" transparent={true} opacity={0.0}/>
-		</mesh>
-    )
+    return null
 }
 
 export default Interactivity

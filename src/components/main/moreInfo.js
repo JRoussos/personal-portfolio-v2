@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useRef } from 'react'
 import { gsap } from 'gsap'
 
-import { asterisk_icon, spotify_logo, github_logo } from '../../assets/svg/asg-icons'
+import { spotify_logo, github_logo } from '../../assets/svg/asg-icons'
 
 const MoreInfo = ({ repositories, track, isPlaying, setIsPlaying }) => {
     const audioRef      = useRef()
@@ -79,14 +79,19 @@ const MoreInfo = ({ repositories, track, isPlaying, setIsPlaying }) => {
     }, [track, infoTitleRef])
 
     return (
-        <div id="more-info">
+        <div className="more-info">
             <div id="interests" className="sg-wrapper">
-                { asterisk_icon }
+                <div style={{ paddingLeft: "44px" }}></div>
                 <div className="info-wrapper">
                     <p className="also">Also I enjoy exploring and learing new stuff, working out and I love coffee</p>
                 </div>
             </div>
             <div style={{ display: "flex" }}>
+                {/* <div className="sg-wrapper">
+                    <div className="info-wrapper">
+                        <p className="subtitle">I'm a front end developer, <br/>most of the time</p>
+                    </div>
+                </div> */}
                 <div className="sg-wrapper">
                     { spotify_logo }
                     <div className="info-wrapper">

@@ -20,6 +20,8 @@ export const mouseListeners = handle => {
         if( handle === 'add' ){
             element.addEventListener('mouseover', largeCircle )
             element.addEventListener('mouseleave', smallCircle )
+
+            gsap.to('#circle', {delay: 0.5, duration: 0.2, r: 30})
         }
         
         if( handle === 'remove' ){

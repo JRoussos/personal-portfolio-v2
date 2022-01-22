@@ -1,0 +1,23 @@
+.copyright {
+    position: absolute;
+    left: 25px;
+    bottom: 15px;
+
+    transform-origin: left;
+    transform: rotateZ(-90deg);
+
+    p, a {
+        font-family: 'Rubik', sans-serif;
+        font-size: 13px;
+
+        color: rgba($color: #fff, $alpha: 0.4);
+
+        text-align: center;
+        transition: color 0.4s ease-out;
+    }
+
+    a:hover {
+        color: rgba($color: #fff, $alpha: 0.8);
+    }
+    
+}

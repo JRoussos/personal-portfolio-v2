@@ -23,23 +23,24 @@ const Animation = ({ location, texture }) => {
 
     useEffect(() => {
         const changeBackgroundProgress = ( ref, state, callback=() => {}, delay=0 ) => {
-            state && gsap.to(ref, { duration: 1.5, delay: delay, value: 1.0, ease: "sine.inOut", onComplete: callback})
-            state || gsap.to(ref, { duration: 1.5, delay: delay, value: 0.0, ease: "sine.inOut", onComplete: callback})
+            state ? 
+                gsap.to(ref, { duration: 1.5, delay: delay, value: 1.0, ease: "sine.inOut", onComplete: callback}) :
+                gsap.to(ref, { duration: 1.5, delay: delay, value: 0.0, ease: "sine.inOut", onComplete: callback}) 
         }
 
         changeBackgroundProgress(uProgress, location === '/')
     }, [uProgress, location])
 
     useFrame(({ clock }) => {         
-        shaderMaterialRef.current.uniforms.uProgress.value = uProgress.value  
         shaderMaterialRef.current.uniforms.uTime.value = clock.elapsedTime
+        shaderMaterialRef.current.uniforms.uProgress.value = uProgress.value  
     })
 
     const uniforms = {
         uTime: uTime,
         uColorTexture: uColorTexture,
         uProgress: uProgress,
-        uInteractiveTexture: uInteractiveTexture,
+        uInteractiveTexture: uInteractiveTexture
     }
 
     return(

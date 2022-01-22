@@ -1,0 +1,37 @@
+.menu-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 5vw;
+
+    cursor: pointer;
+
+    &:hover {
+        .line:nth-child(1) {
+            transform: translateY(-4px);
+        }
+
+        .line:nth-child(2) {
+            transform: translateY(4px);
+        }
+    }
+
+    .line {
+        width: 40px;
+        margin: 10px;
+
+        border-top: 2px solid rgba($color: #fff, $alpha: 0.7);
+        border-radius: 8px;
+
+        transition: transform 0.25s ease-out;
+    }
+}
+
+.open {
+    .line:nth-child(1) {
+        transform: translateY(-4px);
+    }
+
+    .line:nth-child(2) {
+        transform: translateY(4px);
+    }
+}

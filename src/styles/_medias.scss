@@ -1,5 +1,5 @@
 @media screen and (max-height: 500px) {
-    #more-info {
+    .more-info {
         display: none;
     }
 }
@@ -9,9 +9,10 @@
         .center {
             h1 {
                 font-size: clamp(3rem, 6vw, 6rem);
+                line-height: 45px;
             }
             .subtitle {
-                font-size: 14px;
+                font-size: 14px !important;
             }
         }
         .contact {
@@ -32,7 +33,7 @@
     }
 }
 
-@media screen and (max-width: 530px){
+@media screen and (max-width: 530px) {
     header {
         p {
             font-size: 16px;
@@ -49,6 +50,16 @@
             .subtitle {
                 font-size: 15px;
                 text-align: inherit;
+            }
+
+            .more-info {
+                position: unset;
+                bottom: auto;
+        
+                .sg-wrapper {
+                    margin: 15px;
+                    margin-left: 0;
+                }
             }
         }
 
@@ -80,7 +91,7 @@
 
 @media screen and (max-width: 1000px) and (min-width: 530px) {
     main {
-        .center #more-info {
+        .center .more-info {
             justify-content: center;
         }
     }

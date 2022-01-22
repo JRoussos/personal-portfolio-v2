@@ -11,10 +11,11 @@ $font-color: #fff;
     .back-btn {
         position: absolute;
         top: 0;
-        right: 0;
+        right: 5vw;
 
-        margin: 40px;
         display: block;
+        margin: 40px;
+        margin-right: 0;
 
         font-family: 'Rubik', sans-serif;
         font-size: 18px;

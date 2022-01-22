@@ -18,6 +18,7 @@ varying vec3 vPosition;
 
 uniform float uTime;
 uniform float uProgress;
+uniform float uTouchHold;
 
 uniform sampler2D uColorTexture; 
 uniform sampler2D uInteractiveTexture;
@@ -43,7 +44,7 @@ void main() {
   p += 0.13 * sin(4.5 * p.yx - 0.06 * uTime + vec2(9.4, 3.7)); //5
 
   // float mouseTrail = blur(uInteractiveTexture, newUv, uResolution, vec2(12.0)).r * 0.2325;
-  float mouseTrail = texture2D(uInteractiveTexture, newUv).r * 0.051;
+  float mouseTrail = texture2D(uInteractiveTexture, vUv).r * 0.075;
   newUv = vec2(length(p) * uProgress) + mouseTrail;
 
   // float r = texture2D(uColorTexture, newUv += mouseTrail * 0.2).r;
