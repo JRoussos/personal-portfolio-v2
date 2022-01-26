@@ -6,7 +6,7 @@ import './styles/index-style.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div id="noise"/>
+    {/* <div id="noise"/> */}
     <App/>
   </React.StrictMode>,
   document.getElementById('root')

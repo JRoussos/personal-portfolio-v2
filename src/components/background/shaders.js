@@ -23,16 +23,9 @@ uniform float uTouchHold;
 uniform sampler2D uColorTexture; 
 uniform sampler2D uInteractiveTexture;
 
-// vec4 blur(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
-//   vec4 color = vec4(0.0);
-//   vec2 off1 = vec2(1.3333333333333333) * direction;
-
-//   color += texture2D(image, uv) * 0.29411764705882354;
-//   color += texture2D(image, uv + (off1 / resolution)) * 0.35294117647058826;
-//   color += texture2D(image, uv - (off1 / resolution)) * 0.35294117647058826;
-  
-//   return color; 
-// }
+float random(vec2 co, float t) {
+  return fract(sin(mod(dot(co.xy, vec2(12.9898, 78.233) + t), 3.14)) * 43758.5453);
+}
 
 void main() {
   vec2 newUv = vUv;
@@ -46,16 +39,9 @@ void main() {
   // float mouseTrail = blur(uInteractiveTexture, newUv, uResolution, vec2(12.0)).r * 0.2325;
   float mouseTrail = texture2D(uInteractiveTexture, vUv).r * 0.075;
   newUv = vec2(length(p) * uProgress) + mouseTrail;
-
-  // float r = texture2D(uColorTexture, newUv += mouseTrail * 0.2).r;
-  // float g = texture2D(uColorTexture, newUv += mouseTrail * 0.2).g;
-  // float b = texture2D(uColorTexture, newUv += mouseTrail * 0.2).b;
   
-  // vec3 text = vec3(r, g, b) * 0.75;
-  // vec3 text = texture2D(uInteractiveTexture, vUv).rgb * 0.75;
   vec3 text = texture2D(uColorTexture, newUv).rgb * 0.75;
+  vec3 rn = vec3(random(vUv.xy, uTime));
 
-  if ( text.r + text.g + text.b <= 0.5 ) discard;  
-
-  gl_FragColor = vec4(text, 1.0);
+  gl_FragColor = vec4(mix(text, rn, 0.12), 1.0);
 }`
