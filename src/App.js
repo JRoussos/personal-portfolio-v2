@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
-import Contents from './components/contents/contents';
+import Routes from './routes/routes';
 import Background from './components/background/background';
 
 import Mouse from './utils/mouse';
@@ -15,7 +15,7 @@ const App = () => {
       { isMobile || <Mouse/> }
       <BrowserRouter>
         <Background/>
-        <Contents/>
+        <Routes/>
       </BrowserRouter>
     </StateProvider>
   )

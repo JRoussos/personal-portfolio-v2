@@ -1,7 +1,7 @@
 @media screen and (max-height: 500px) {
-    .more-info {
-        display: none;
-    }
+    // .more-info {
+    //     display: none;
+    // }
 }
 
 @media screen and (max-width: 340px) {
@@ -52,15 +52,15 @@
                 text-align: inherit;
             }
 
-            .more-info {
-                position: unset;
-                bottom: auto;
+            // .more-info {
+            //     position: unset;
+            //     bottom: auto;
         
-                .sg-wrapper {
-                    margin: 15px;
-                    margin-left: 0;
-                }
-            }
+            //     .sg-wrapper {
+            //         margin: 15px;
+            //         margin-left: 0;
+            //     }
+            // }
         }
 
         .contact {
@@ -82,17 +82,17 @@
 @media screen and (max-width: 850px){
     main {
         .center {
-            #interests {
-                display: none !important;
-            }
+            // #interests {
+            //     display: none !important;
+            // }
         }
     }
 }
 
 @media screen and (max-width: 1000px) and (min-width: 530px) {
     main {
-        .center .more-info {
-            justify-content: center;
-        }
+        // .center .more-info {
+        //     justify-content: center;
+        // }
     }
 }

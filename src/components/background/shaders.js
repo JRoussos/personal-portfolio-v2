@@ -29,19 +29,18 @@ float random(vec2 co, float t) {
 
 void main() {
   vec2 newUv = vUv;
-  vec2 p = 2.0 * newUv - vec2(1.0); // normalize the uvs from 0 to 2
+  vec2 p = -1.5 * newUv + vec2(0.15); 
+  
+  float time = uTime * 0.5;
 
-  p += 0.83 * cos(2.8 * p.yx - 0.21 * uTime + vec2(1.2, 8.2)); //3
-  p += 0.53 * sin(1.7 * p.yx - 0.14 * uTime + vec2(5.8, 1.6)); //2
-  p += 0.23 * cos(3.2 * p.yx - 0.47 * uTime + vec2(4.3, 5.4)); //4
-  p += 0.13 * sin(4.5 * p.yx - 0.06 * uTime + vec2(9.4, 3.7)); //5
+  p += texture2D(uInteractiveTexture, vUv).r * 0.08;
+  p += 0.51 * sin(1.2 * p.yx - time + vec2(0.8, 0.2));
+  p += 0.45 * cos(3.7 * p.yx - time + vec2(5.6, 1.6));
 
-  // float mouseTrail = blur(uInteractiveTexture, newUv, uResolution, vec2(12.0)).r * 0.2325;
-  float mouseTrail = texture2D(uInteractiveTexture, vUv).r * 0.075;
-  newUv = vec2(length(p) * uProgress) + mouseTrail;
+  newUv = vec2(length(p) * uProgress);
   
   vec3 text = texture2D(uColorTexture, newUv).rgb * 0.75;
-  vec3 rn = vec3(random(vUv.xy, uTime));
+  vec3 rn = vec3(random(vUv.xy, 1.0));
 
   gl_FragColor = vec4(mix(text, rn, 0.12), 1.0);
 }`

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useFrame } from '@react-three/fiber'
 import { Texture } from 'three';
 
-import ripple from '../assets/imgs/mouse.png';
+import ripple from '../assets/imgs/mouse-blur.png';
 
 let trail = []
 let size = {
@@ -25,11 +25,11 @@ ctx.fillRect(0, 0, size.w, size.h)
 const img = document.createElement('img')
 img.src = ripple
 
-let rippleSize = img.width
+let rippleSize = img.width * 0.5
 
 export const texture = new Texture(canvas)
 
-const Interactivity = ({maxAge=60}) => {
+const Interactivity = ({maxAge=40}) => {
 	// eslint-disable-next-line no-unused-vars
     const drawTouch = point => {
         const pos = {
@@ -62,14 +62,14 @@ const Interactivity = ({maxAge=60}) => {
 			y: (1 - point.y) * size.h
 		}
         
-        let intensity = 1
-		if (point.age < maxAge * 0.3) intensity = easeOutSine(point.age / (maxAge * 0.3), 0, 1, 1)
-		else intensity = easeOutSine(1 - (point.age - maxAge * 0.3) / (maxAge * 0.7), 0, 1, 1)
+        let intensity = 1 * point.force
+		// if (point.age < maxAge * 0.3) intensity = easeOutSine(point.age / (maxAge * 0.3), 0, 1, 1)
+		// else intensity = easeOutSine(1 - (point.age - maxAge * 0.3) / (maxAge * 0.7), 0, 1, 1)
+		// intensity *= point.force
 
-		intensity *= point.force
 
-		let radius = rippleSize * 0.35 * intensity
-		radius = radius < 50 ? 0 : radius
+		let radius = Math.max((rippleSize * point.force), 50)
+		// radius = radius < 50 ? 0 : radius
 
 		ctx.drawImage(img, pos.x - radius/2, pos.y - radius/2, radius, radius)
 	}
@@ -83,14 +83,14 @@ const Interactivity = ({maxAge=60}) => {
 			const dy = last.y - point.y
 			const dd = dx * dx + dy * dy
 
-			force = Math.min(dd * 10000, 1)
+			force = Math.max(Math.min(dd * 10000, 1), 0.5)
 		}
 
 		trail.push({ x: point.x, y: point.y, age: 0, force })
 	}
 	
     useFrame( () => {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.2)' // trail fade over time
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.4)' // trail fade over time
 		ctx.fillRect(0, 0, size.w, size.h)
 
         trail.forEach( (point, index, array) => {

@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/underline';
 
 .center {
     display: flex;
@@ -10,49 +11,101 @@
     height: 100vh;
     width: 100%;
 
-    h1 {
-        font-family: 'Eksell Large';
-        font-size: clamp(4rem, 6vw, 8rem);
-        font-weight: 600;
+    .title-wrapper {
+        display: flex;
+        overflow: hidden;
 
-        // line-height: 60px;
-        letter-spacing: 2px;
-        color: rgba( 255, 255, 255, 0.8);
+        position: absolute;
+        left: 7.5%;
 
-        padding: 0 10px;
-        margin: 0;
+        h1 {
+            font-family: 'Bosch';
+            font-size: 9vw;
+            font-weight: 600;
+    
+            color: rgba( 255, 255, 255, 0.8);
+            margin: 0 12px;
+    
+            background: url(../../assets/imgs/grain.png);
+            background-clip: text;
+    
+            span {
+                font-style: italic;
+                font-weight: 400;
+    
+                margin-right: 0.5vw;
+                margin-left: -0.7vw;
+            }
+        }
     }
 
     .subtitle {
-        font-family: 'Rubik', sans-serif;
-        font-size: 17px;
-
-        // letter-spacing: 0.1mm;
-        color: rgba( 255, 255, 255, 0.8);
-        opacity: 0.9;
-
-        margin: 10px;
-        // margin-top: 40px;
-
-        text-align: center;
-    }
-
-    .navbar {
         position: absolute;
-        bottom: 0;
-        
-        width: 90%;
-        height: 60px;
-        
-        margin: 5%;
-        border-radius: 8px;
-        
-        background: rgba($color: #646464, $alpha: 0.2);
+        bottom: 10%;
 
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
+        .subtitle-wrapper {
+            p {
+                font-family: 'Rubik';
+                font-size: 15px;
+                font-weight: 400;
+        
+                overflow: hidden;
+                width: 410px;
+            
+                color: rgba( 255, 255, 255, 0.8);
+                text-align: justify;
+            }
+    
+            .link-wrapper {
+                padding-top: 10px;
+                border-top: 2px solid rgba( 255, 255, 255, 0.8);
+
+                display: flex;
+                justify-content: space-between;
+
+                span {
+                    font-family: 'Rubik', sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+        
+                    color: rgba( 255, 255, 255, 0.8);
+                    width: 100%;
+                    
+                    display: inline-block;
+                    text-align: left;
+                    line-height: 30px;
+                }
+    
+                svg {
+                    margin-right: 2px;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            
+            .scroll-indicator {
+                display: inline-flex;
+                align-items: center;
+                
+                font-size: 18px;
+
+                span {
+                    font-size: 22px;
+                    padding: 0 4px;
+                }
+            }
+        }
     }
+
+    .left {
+        left: 7.5%;
+    }
+    
+    .right {
+        right: 7.5%;
+    }
+
+
 }
 
 .more-info {
@@ -89,8 +142,8 @@
             font-weight: 400;
 
             overflow: hidden;
-            margin: 0;
-            width: 210px;
+            // margin: 0;
+            width: 225px;
         
             color: rgba( 255, 255, 255, 0.8);
             

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 
-import Main from '../main/main'
-import Contact from '../contact/contact'
+import Home from '../pages/home/home'
+import Contact from '../pages/contact/contact'
 
 import { isMobile } from 'react-device-detect'
-import { mouseListeners } from '../../utils/mouse'
+import { mouseListeners } from '../utils/mouse'
 
-import './content-style.scss'
-import useWindowSize from '../../utils/useWindowSize'
+import useWindowSize from '../utils/useWindowSize'
+import './routes-style.scss'
 
 const Contents = () => {
     const routerLocation = useLocation()
@@ -36,7 +36,7 @@ const Contents = () => {
         <main>
             <div style={{ width: "100%", maxWidth: Math.max(Math.min(width * 0.8, 1500), 1000) }} className={transitionState} onAnimationEnd={handleAnimationEnd}>
                 <Switch location={currentLocation} key={currentLocation.key}>
-                    <Route exact path="/" component={Main}/>
+                    <Route exact path="/" component={Home}/>
                     <Route exact path="/contact" component={Contact}/>
                     <Route path="*">
                         <Redirect to="/"/>

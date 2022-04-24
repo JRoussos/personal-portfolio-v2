@@ -1,8 +1,8 @@
-@import './keyframes';
-@import './fonts';
-@import './medias';
+@import './styles/keyframes';
+@import './styles/fonts';
+@import './styles/medias';
 
-@import './underline';
+@import './styles/underline';
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -18,34 +18,14 @@ body {
     &::-webkit-scrollbar {
         display: none;
     }
-}
 
-#root {
-    overflow-x: hidden;
-    // height: 100%;
-}
-  
-#noise {
-    position: fixed;
-    z-index: 100;
-    inset: -50%;
-  
-    opacity: 0.06;
-  
-    background-image: url('../assets/imgs/grain.png');
-    background-repeat: repeat;
-  
-    pointer-events: none;
-    animation: make-noise 6s steps(10) infinite;
-    will-change: transform;
+    cursor: none !important;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    // margin: 0 10vw;
 }
 
 .link-element {

@@ -6,22 +6,21 @@ const cursor_styles = {
     top: '-109px',
     left: '-109px',
     opacity: 0,
-    mixBlendMode: 'difference',
     pointerEvents: 'none',
     willChange: 'transform',
     zIndex: 90
 }
 
 export const mouseListeners = handle => {
-    const smallCircle = () => gsap.to('#circle', {duration: 0.2, r: 30})
-    const largeCircle = () => gsap.to('#circle', {duration: 0.2, r: 50})
+    const smallCircle = () => gsap.to('#circle', {duration: 0.2, fillOpacity: 0})
+    const largeCircle = () => gsap.to('#circle', {duration: 0.2, fillOpacity: 1})
 
     document.querySelectorAll('.link-element').forEach( element => {
         if( handle === 'add' ){
             element.addEventListener('mouseover', largeCircle )
             element.addEventListener('mouseleave', smallCircle )
 
-            gsap.to('#circle', {delay: 0.5, duration: 0.2, r: 30})
+            gsap.to('#circle', {delay: 0.5, duration: 0.2, fillOpacity: 0})
         }
         
         if( handle === 'remove' ){
@@ -42,7 +41,7 @@ const Mouse = () => {
     
     const onTick = useCallback(() => {
         const getRotation = (x, y) => Math.atan2(y, x) * 180 / Math.PI // return the angle converted in degrees from radians
-        const getDistance = (x, y) => Math.min(Math.hypot(x, y) / 300, 0.4) // return the distance between the x and y value of the previous position 
+        const getDistance = (x, y) => Math.min(Math.hypot(x, y), 40) //Math.min(Math.hypot(x, y) / 100, 0.4) // return the distance between the x and y value of the previous position 
         // Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) - As it turns out there is a deicated math function for than 
 
         const rotation = getRotation(mousePreviousPosition.current.x, mousePreviousPosition.current.y)
@@ -51,9 +50,7 @@ const Mouse = () => {
         quickSet.current.x(mouseCurrentPosition.current.x)
         quickSet.current.y(mouseCurrentPosition.current.y)
 
-        quickSet.current.scaleX(1 + distance)
-        quickSet.current.scaleY(1 - distance)
-        
+        quickSet.current.width(60 + distance)
         quickSet.current.rotate(rotation)
     }, [])
 
@@ -85,8 +82,7 @@ const Mouse = () => {
         quickSet.current.y      = gsap.quickSetter('#cursor', 'y', 'px')
 
         quickSet.current.rotate = gsap.quickSetter('#cursor', 'rotate', 'deg')
-        quickSet.current.scaleX = gsap.quickSetter('#cursor', 'scaleX')
-        quickSet.current.scaleY = gsap.quickSetter('#cursor', 'scaleY')
+        quickSet.current.width  = gsap.quickSetter('#circle', 'width')
 
         gsap.ticker.add(onTick)
         
@@ -101,9 +97,12 @@ const Mouse = () => {
     }, [onTick, handleMouseMove, handleMouseLeave])
 
     return (
-        <svg id="cursor" width="220" height="220" fill="none" viewBox="0 0 220 220" style={cursor_styles}>
-            <circle id="circle" cx="110" cy="110" r="30" strokeWidth="2px" stroke="white" strokeOpacity="0.8"/>
+        <svg id="cursor" width="220" height="220" viewBox="0 0 220 220" fill="none" style={cursor_styles}>
+            <rect id="circle" x="80" y="80" width="60" height="60" rx="30" stroke="white" strokeOpacity="0.8" strokeWidth="2px"/>
         </svg>
+        // <svg id="cursor" width="220" height="220" fill="none" viewBox="0 0 220 220" style={cursor_styles}>
+        //     <circle id="circle" cx="110" cy="110" r="40" strokeWidth="2px" stroke="white" strokeOpacity="0.8"/>
+        // </svg>
     )
 }
 

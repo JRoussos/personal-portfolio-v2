@@ -22,7 +22,7 @@ const Background = () => {
     return (
         <div id="canvas-container">
             <Canvas dpr={[window.devicePixelRatio, 2]} camera={cameraProps} colorManagement={true}>
-                { isMobile || <Interactivity maxAge={40}/> }
+                { isMobile || <Interactivity/> }
                 <Animation location={pathname} texture={texture}/>
             </Canvas>
         </div>
