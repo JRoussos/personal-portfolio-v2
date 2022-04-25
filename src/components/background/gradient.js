@@ -8,7 +8,7 @@ import { fragment, vertex } from './shaders'
 
 import { blue_red } from './colors'
 
-const Animation = ({ location, texture }) => {
+const Gradient = ({ location, texture }) => {
     const { viewport } = useThree()
     const shaderMaterialRef = useRef()
 
@@ -34,7 +34,7 @@ const Animation = ({ location, texture }) => {
 
     useFrame(({ clock }) => {         
         shaderMaterialRef.current.uniforms.uTime.value = clock.elapsedTime
-        shaderMaterialRef.current.uniforms.uProgress.value = uProgress.value  
+        shaderMaterialRef.current.uniforms.uProgress.value = uProgress.value
     })
 
     const uniforms = {
@@ -53,4 +53,4 @@ const Animation = ({ location, texture }) => {
     )
 }
 
-export default Animation;
+export default Gradient;

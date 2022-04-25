@@ -7,10 +7,12 @@ import Contact from '../pages/contact/contact'
 import { isMobile } from 'react-device-detect'
 import { mouseListeners } from '../utils/mouse'
 
+import SmoothScroll from '../utils/SmoothScroll'
 import useWindowSize from '../utils/useWindowSize'
+
 import './routes-style.scss'
 
-const Contents = () => {
+const Routes = ({ imagesLoadedState }) => {
     const routerLocation = useLocation()
     const { width } = useWindowSize()
 
@@ -33,7 +35,7 @@ const Contents = () => {
     }
 
     return (
-        <main>
+        <SmoothScroll reload={[currentLocation, imagesLoadedState]}>
             <div style={{ width: "100%", maxWidth: Math.max(Math.min(width * 0.8, 1500), 1000) }} className={transitionState} onAnimationEnd={handleAnimationEnd}>
                 <Switch location={currentLocation} key={currentLocation.key}>
                     <Route exact path="/" component={Home}/>
@@ -43,8 +45,8 @@ const Contents = () => {
                     </Route>
                 </Switch>
             </div>
-        </main>
+        </SmoothScroll>
     )
 }
 
-export default Contents
+export default Routes

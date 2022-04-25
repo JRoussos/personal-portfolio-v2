@@ -42,5 +42,5 @@ void main() {
   vec3 text = texture2D(uColorTexture, newUv).rgb * 0.75;
   vec3 rn = vec3(random(vUv.xy, 1.0));
 
-  gl_FragColor = vec4(mix(text, rn, 0.12), 1.0);
+  gl_FragColor = vec4(text, 1.0);//mix(text, rn, 0.12), 1.0);
 }`

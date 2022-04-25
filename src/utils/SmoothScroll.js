@@ -1,13 +1,10 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useCallback } from "react";
 import useWindowSize from "./useWindowSize";
 
 const parent_style = {
     position: 'fixed',
     overflow: 'hidden',
-    top: 0, 
-    left: 0,
-    width: '100%',
-    height: '100%'
+    inset: 0
 }
 
 const config = {
@@ -21,7 +18,7 @@ export const getScrollValue = () => {
     return config.previous
 }
 
-const SmoothScroll = ({ children }) => {
+const SmoothScroll = ({ children, reload }) => {
     const SCROLL_ID  = useRef(null)
 
     const scrollableContainerRef = useRef();
@@ -54,13 +51,13 @@ const SmoothScroll = ({ children }) => {
         window.addEventListener('scroll', scrollHandler)
     }, [scrollHandler]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setScrollerHeight();
-    }, [size.height])
+    }, [size, reload])
 
     return (
         <div style={parent_style}>
-           <main id="scrollableContainer" ref={scrollableContainerRef}>{children}</main>
+           <main id="scrollableContainer" ref={scrollableContainerRef} style={{willChange: "transform"}}>{children}</main>
         </div>
     )
 }

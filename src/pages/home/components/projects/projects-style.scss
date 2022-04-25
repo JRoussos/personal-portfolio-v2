@@ -1,37 +1,97 @@
+@import '../../../../styles/variables';
+
 .projects {
+    display: grid;
+    width: 100%;
 
-    #scroller {
-        position: absolute;
-        right: 2vw;
-        top: 50%;
+    margin-top: 5vw;
 
-        width: 2px;
-        height: 10vw;
+    grid-template-columns: 41.17% 27.06% 31.77%;
+    grid-auto-flow: row;
 
-        background-color: rgba($color: #fff, $alpha: 0.6);
+    .post {
+        height: fit-content;
+        width: max-content;
+        margin: 30px;
 
-        #thumb {
-            position: absolute;
-            inset: 0;
+        text-decoration: none;
+        cursor: none;
 
-            background-color: rgba($color: #000, $alpha: 0.6);
+        &:nth-child(n+2) {
+            grid-column-start: 3;
+            grid-column-end: 4;
 
-            transform: scaleY(1);
-            transform-origin: bottom;
+            // padding-top: 2.5vw;
+            justify-self: end;
+        }
+        
+        .title-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h5, p {
+                font-family: 'Rubik', sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+
+                text-transform: uppercase;
+                color: $text_black_80;
+                
+                margin: 0;
+            }
+
+            p {
+                // font-family: 'Bosch';
+                font-size: 14px;
+
+                // font-style: italic;
+            }
+
+            span {
+                font-weight: 300;
+            }
+        }
+
+        .image-container {
+            padding: 10px 0;
+
+            img {
+                max-height: 500px;
+                
+                pointer-events: none;
+                opacity: 0;
+            }
         }
     }
+}
 
-    .data-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+.link-more-wrapper {
+    height: 50vh;
+    width: 100vw;
 
-        flex-direction: column;
+    display: flex;
+    align-items: center;
 
-        height: 100vh;
+    position: absolute;
+    left: 0;
 
-        img {
-            width: 70vw;
+    p {
+        display: inline-block;
+
+        font-family: 'Bosch'; 
+        font-size: 9vw;  
+        font-weight: 200;
+        
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: $text_black_80;
+
+        margin: 0;
+
+        span {
+            display: inline-block;
+            transform: scaleX(2);
         }
     }
 }

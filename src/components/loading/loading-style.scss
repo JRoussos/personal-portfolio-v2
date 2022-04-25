@@ -1,0 +1,35 @@
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    height: 100vh;
+    width: 100vw;
+
+    background: #121212;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .line-wrapper {
+        overflow: hidden;
+    }
+
+    .line {
+        pointer-events: none;
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+    
+    .line-slide {
+        top: -3px;
+        stroke-width: 2px;
+        animation: line-animation 1s cubic-bezier(0, 0.25, 0.5, 1) infinite;
+    }
+}
+
+@keyframes line-animation {
+    to { transform: translate3d(-66.6%, 0, 0) }
+}

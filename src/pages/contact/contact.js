@@ -1,19 +1,12 @@
-import React, { useRef, useLayoutEffect } from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useStore } from '../../contexts/store'
-import useWindowSize from '../../utils/useWindowSize'
 import './contact-style.scss'
 
 const Contact = () => {
-    const { height } = useWindowSize()
-
     const { socials, email } = useStore().state
     const contactRef = useRef()
-
-    useLayoutEffect(() => {
-        contactRef.current.style.height = `${height}px`
-    },[height])
 
     const github = { name: 'gh', title: 'GitHub', url: 'https://github.com/JRoussos' }
 
