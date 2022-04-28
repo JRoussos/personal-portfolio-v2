@@ -1,5 +1,6 @@
-import React, { useRef, useInsertionEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useThree, useLoader } from '@react-three/fiber'
+
 import { TextureLoader } from 'three';
 
 const Post = ({ img }) => {
@@ -14,24 +15,21 @@ const Post = ({ img }) => {
 }
  
 const Images = () => {
-    const { viewport } = useThree()
     const images = useRef([...document.querySelectorAll('img')])
+    // const { viewport } = useThree()
     
-    useInsertionEffect(() => {
+    useEffect(() => {
         const setPositions = () => {
             images.current.forEach( img => {
                 const { top, left } = img.getBoundingClientRect()
-                img.positionY = -top + viewport.height/2 - img.height/2
-                img.positionX = left - viewport.width/2 + img.width/2
+                img.positionY = -top + window.innerHeight/2 - img.height/2
+                img.positionX = left - window.innerWidth/2 + img.width/2
             })
         }
         setPositions()
-        // window.addEventListener('resize', setPositions)
-        
-        // return window.removeEventListener('resize', setPositions)
-    }, [viewport])
+    }, [])
 
-    return images.current.map( (img, i) => <Post key={img.alt} img={img}/>)
+    return images.current.map( img => <Post key={img.alt} img={img}/>)
 }
 
 export default Images;

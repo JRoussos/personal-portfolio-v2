@@ -1,5 +1,6 @@
 const initialState = {
     isPlaying: false,
+    canvasReady: false,
     email: 'jroussosdev@gmail.com',
     socials: [
         { name: 'tw', title: 'Twitter', url: 'https://twitter.com/giannhs_r' },
@@ -10,6 +11,8 @@ const initialState = {
 
 const reducer = (state, action) => {
     switch (action.type) {
+        case 'CHANGE_CANVAS_LOADED':
+            return { ...state, canvasReady: action.canvasReady }
         case 'CHANGE_PLAYING_STATUS':
             return { ...state, isPlaying: action.isPlaying }
         default:

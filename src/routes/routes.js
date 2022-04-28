@@ -3,29 +3,22 @@ import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 
 import Home from '../pages/home/home'
 import Contact from '../pages/contact/contact'
-
-import { isMobile } from 'react-device-detect'
-import { mouseListeners } from '../utils/mouse'
+import About from '../pages/about/about'
 
 import SmoothScroll from '../utils/SmoothScroll'
-import useWindowSize from '../utils/useWindowSize'
 
 import './routes-style.scss'
 
-const Routes = ({ imagesLoadedState }) => {
+const Routes = ({ canvasReady }) => {
     const routerLocation = useLocation()
-    const { width } = useWindowSize()
 
     const [currentLocation, setCurrentLocation] = useState(routerLocation)
     const [transitionState, setTransitionState] = useState("fadeIn")
 
     useEffect(() => {
         if (routerLocation !== currentLocation) setTransitionState("fadeOut")
-        
-        isMobile || mouseListeners('add')
-        return () => mouseListeners('remove')
-    }, [routerLocation, currentLocation])
 
+    }, [routerLocation, currentLocation])
 
     const handleAnimationEnd = () => {
         if(transitionState === "fadeOut") {
@@ -35,11 +28,12 @@ const Routes = ({ imagesLoadedState }) => {
     }
 
     return (
-        <SmoothScroll reload={[currentLocation, imagesLoadedState]}>
-            <div style={{ width: "100%", maxWidth: Math.max(Math.min(width * 0.8, 1500), 1000) }} className={transitionState} onAnimationEnd={handleAnimationEnd}>
+        <SmoothScroll reload={[currentLocation, canvasReady]}>
+            <div style={{ width: "min(80%, 1500px)" }} className={transitionState} onAnimationEnd={handleAnimationEnd}> {/** , maxWidth: Math.max(Math.min(width * 0.8, 1500), 1000) */}
                 <Switch location={currentLocation} key={currentLocation.key}>
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/contact" component={Contact}/>
+                    <Route exact path="/about" component={About}/>
                     <Route path="*">
                         <Redirect to="/"/>
                     </Route>

@@ -17,12 +17,22 @@
         text-decoration: none;
         cursor: none;
 
-        &:nth-child(n+2) {
+        &:nth-child(2n) {
             grid-column-start: 3;
             grid-column-end: 4;
-
-            // padding-top: 2.5vw;
+            
             justify-self: end;
+        }
+
+        &:nth-child(2n+1) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+
+            justify-self: end;
+        }
+        
+        &:first-child {
+            justify-self: unset;
         }
         
         .title-header {
@@ -39,13 +49,6 @@
                 color: $text_black_80;
                 
                 margin: 0;
-            }
-
-            p {
-                // font-family: 'Bosch';
-                font-size: 14px;
-
-                // font-style: italic;
             }
 
             span {

@@ -8,15 +8,11 @@
     100% { opacity: 0 }
 }
 
-@keyframes scroll-progress-animation {
-    0%   { left: -100px }
-    50%  { left:    0px }
-    100% { left:  100px }
-}
-
-@keyframes loading-card-animation {
-    0%   { background-position: -600px }
-    100% { background-position:  600px }
+@keyframes up {
+    to { 
+        opacity: 1;
+        transform: translate3d(0, 0, 0) skew(0);
+    }
 }
 
 @keyframes make-noise {
@@ -38,6 +34,11 @@
     20%  { height: 100% }
     80%  { height: 40%  }
     100% { height: 10%  }
+}
+
+@keyframes uniformal-audio-playing {
+    0%   { height:  10% }
+    100% { height: 100% }
 }
 
 @keyframes marquee {

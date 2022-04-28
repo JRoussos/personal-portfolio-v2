@@ -1,13 +1,28 @@
-import React, { useRef } from 'react'
+import React, { useRef, useLayoutEffect, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
+
+import imagesloaded from 'imagesloaded';
 
 import Gradient from './gradient';
 import Images from './images'
 
 import { getScrollValue } from '../../utils/SmoothScroll'
+import { Switch } from 'react-router-dom';
 
 const Meshes = ({ pathname }) => {
+    const [ imgLoadingState, setLoadingState ] = useState([])
     const groupRef = useRef()
+    // const { camera, viewport } = useThree()
+
+    // useLayoutEffect(() => {
+    //     camera.fov = Math.atan((viewport.height/2)/100) * 2 * (180/Math.PI)
+    // }, [viewport])
+        
+    useLayoutEffect(() => {
+            imagesloaded(document.querySelectorAll('img'), ({ images }) => {
+                setLoadingState(images.map( _ => _.img))
+            })
+    }, [])
 
     useFrame(() => {
         groupRef.current.position.y = getScrollValue()
@@ -16,7 +31,7 @@ const Meshes = ({ pathname }) => {
     return (
         <group ref={groupRef}>
             <Gradient location={pathname}/>
-            <Images/>
+            {/* <Images images={imgLoadingState}/> */}
         </group>
     )
 }

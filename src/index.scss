@@ -1,6 +1,7 @@
 @import './styles/keyframes';
 @import './styles/fonts';
 @import './styles/medias';
+@import './styles/variables';
 
 @import './styles/underline';
 
@@ -10,7 +11,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     
     margin: 0;
-    background: #e7e1e1;
+    background: $background_white;
     
     user-select: none;
     scrollbar-width: none;

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import useWindowSize from "./useWindowSize";
 
 const parent_style = {
@@ -25,7 +25,7 @@ const SmoothScroll = ({ children, reload }) => {
     const size = useWindowSize();
     
     const setScrollerHeight = () => {
-        document.body.style.height = `${scrollableContainerRef.current.getBoundingClientRect().height}px`
+        document.getElementById('root').style.height = `${scrollableContainerRef.current.getBoundingClientRect().height}px`
     }
 
     const smoothScrollingHandler = useCallback( () => {
@@ -51,7 +51,7 @@ const SmoothScroll = ({ children, reload }) => {
         window.addEventListener('scroll', scrollHandler)
     }, [scrollHandler]);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         setScrollerHeight();
     }, [size, reload])
 

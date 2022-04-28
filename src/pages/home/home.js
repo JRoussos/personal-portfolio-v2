@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Anchor from '../../components/anchor/anchor'
 import Projects from '../../pages/home/components/projects/projects'
 import Topper from '../../components/topper/topper'
+import Transition from './components/transition/transition'
 
 import './home-style.scss'
 
@@ -18,7 +19,7 @@ const Title = () => {
                     <h1>RO<span>U</span>SSOS</h1>
                 </div>
                 <div className='subtitle left'>
-                    <Link to={'/contact'} className="subtitle-wrapper">
+                    <Link to={'/about'} className="subtitle-wrapper">
                         <p>Hey, I'm a front-end developer most of the time. I also enjoy working out, go on explorations, oh.. and I love coffee</p>
                         <Anchor as='div' className='white'>Get to know me</Anchor>
                     </Link>
@@ -30,6 +31,7 @@ const Title = () => {
                 </div>
             </div>
             <Projects/>
+            <Transition/>
         </Topper>
     )
 }

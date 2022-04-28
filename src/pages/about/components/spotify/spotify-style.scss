@@ -1,0 +1,100 @@
+@import '../../../../styles/variables';
+
+.spotify-container {
+    // border: 2px solid $text_white_80;
+
+    .info-wrapper {
+        padding-top: 10px;
+        border-top: 2px solid $text_white_80;
+
+        display: flex;
+        justify-content: space-between;
+
+        width: 410px;
+
+        svg {
+            margin-right: 2px;
+            width: 20px;
+            height: 20px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        a {
+            width: auto !important;
+        }
+    }
+    
+    .audio-controls {
+        display: flex;
+        align-items: flex-end;
+
+        span {
+            font-size: small;
+            font-family: 'Rubik';
+            font-weight: 300;
+
+            color: $text_white_80;
+        }
+        
+        button {
+            background: none;
+            border: none;
+            outline: none;
+            
+            cursor: none;
+            
+            padding: 0;
+            margin-right: 10px;
+
+            color: $text_white_80;
+            overflow: hidden;
+            
+            // text-decoration: underline;
+
+            div {
+                height: 15px;
+                width: 35px;
+
+                span {
+                    display: block;
+                    text-align: start;
+                }
+            }
+        }
+    }
+
+    .audio-animation {
+        box-sizing: border-box;
+        width: 25px;
+        height: 15px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        
+        padding: 2px;
+        margin-left: 5px;
+
+        .audio-bar {
+            display: inline-block;
+            background: rgba($color: #fff, $alpha: 0.8);
+            width: 4px;
+
+            will-change: height;
+
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                    height: 0%;
+                    animation-delay: #{$i/10}s;
+                }
+            }
+        }
+        
+        .playing {
+            animation: uniformal-audio-playing .8s linear infinite alternate;
+        }
+    }
+}
