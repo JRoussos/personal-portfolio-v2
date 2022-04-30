@@ -15,43 +15,43 @@ const cursor_styles = {
 let initialWidth = 60
 let rotateFactor = 1
 
-export const mouseListeners = handle => {
-    const handleActive = event => {
-        const { width, height } = event.currentTarget.getBoundingClientRect()
+// export const mouseListeners = handle => {
+//     const handleActive = event => {
+//         const { width, height } = event.currentTarget.getBoundingClientRect()
 
-        const left = -(width-1) /2
-        const top = -(height-1) /2
+//         const left = -(width-1) /2
+//         const top = -(height-1) /2
 
-        gsap.set('#cursor', {left, top})
+//         gsap.set('#cursor', {left, top})
 
-        gsap.to('#cursor', { duration: 0.2, attr: {width: width+40, height: height+40, viewBox: `0 0 ${width+40} ${height+40}`}})
-        gsap.to('#circle', { duration: 0.2, attr: {x: 5, y: 5, rx: 5, width: width+30, height: height+30} })
+//         gsap.to('#cursor', { duration: 0.2, attr: {width: width+40, height: height+40, viewBox: `0 0 ${width+40} ${height+40}`}})
+//         gsap.to('#circle', { duration: 0.2, attr: {x: 5, y: 5, rx: 5, width: width+30, height: height+30} })
 
-        initialWidth = width + 30
-        rotateFactor = 0
-    }
+//         initialWidth = width + 30
+//         rotateFactor = 0
+//     }
 
-    const handleDeactive = () => {
-        gsap.to('#cursor', { duration: 0.2, attr: {width: 220, height: 220, viewBox: `0 0 220 220`}, top: -109, left: -109 })
-        gsap.to('#circle', { duration: 0.2, attr: {width: 60, height: 60, x: 80, y: 80, rx: 30}})
+//     const handleDeactive = () => {
+//         gsap.to('#cursor', { duration: 0.2, attr: {width: 220, height: 220, viewBox: `0 0 220 220`}, top: -109, left: -109 })
+//         gsap.to('#circle', { duration: 0.2, attr: {width: 60, height: 60, x: 80, y: 80, rx: 30}})
 
-        initialWidth = 60
-        rotateFactor = 1
-    }
+//         initialWidth = 60
+//         rotateFactor = 1
+//     }
 
-    // document.querySelectorAll('a').forEach( element => {
-    //     if( handle === 'add' ){
-    //         element.addEventListener('mouseenter', handleActive )
-    //         element.addEventListener('mouseleave', handleDeactive )
-    //     }
+//     // document.querySelectorAll('a').forEach( element => {
+//     //     if( handle === 'add' ){
+//     //         element.addEventListener('mouseenter', handleActive )
+//     //         element.addEventListener('mouseleave', handleDeactive )
+//     //     }
         
-    //     if( handle === 'remove' ){
-    //         element.removeEventListener('mouseenter', handleActive )
-    //         element.removeEventListener('mouseleave', handleDeactive )
-    //     }
+//     //     if( handle === 'remove' ){
+//     //         element.removeEventListener('mouseenter', handleActive )
+//     //         element.removeEventListener('mouseleave', handleDeactive )
+//     //     }
 
-    // })
-}
+//     // })
+// }
 
 const Mouse = () => {
     const mousePreviousPosition = useRef({x: 0, y: 0})

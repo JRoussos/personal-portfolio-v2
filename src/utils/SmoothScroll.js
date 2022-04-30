@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useCallback } from "react";
 import useWindowSize from "./useWindowSize";
 
-const parent_style = {
+const parent_style = {    
     position: 'fixed',
     overflow: 'hidden',
     inset: 0
@@ -15,7 +15,10 @@ const config = {
 }
 
 export const getScrollValue = () => {
-    return config.previous
+    return {
+        scroll: config.previous, 
+        delta: (config.current - config.previous) * config.velocity
+    }
 }
 
 const SmoothScroll = ({ children, reload }) => {

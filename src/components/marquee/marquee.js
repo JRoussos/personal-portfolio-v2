@@ -1,21 +1,23 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
+import { getScrollValue } from '../../utils/SmoothScroll'
 import './marquee-style.scss'
 
 const Marquee = ({ text }) => {
-    const marqueeRef = useRef()
     const animationFrameID = useRef()
-
-    let current_position = 0
-
-    const animate = (width) => {
+    const current_position = useRef(0)
+    
+    const marqueeRef = useRef()
+    
+    const animate = useCallback((width) => {
         if (!marqueeRef.current) return
+        const { delta } = getScrollValue()
+        
+        current_position.current += 1 + Math.abs(delta)
+        if (current_position.current > width ) current_position.current = 0
 
-        current_position += 1
-        if (current_position > width ) current_position = 0
-
-        marqueeRef.current.style.transform = `translate3d(-${current_position}px, 0, 0)`
+        marqueeRef.current.style.transform = `translate3d(-${current_position.current}px, 0, 0)`
         animationFrameID.current = requestAnimationFrame(() => animate(width))
-    }
+    }, [])
 
     
     useEffect(() => {
@@ -25,7 +27,7 @@ const Marquee = ({ text }) => {
 
         setTimeout(initializePositions, 100)
         return () => cancelAnimationFrame(animationFrameID.current)
-    }, [])
+    }, [animate])
 
     return (
         <div className='marquee-container'>

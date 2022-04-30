@@ -53,7 +53,7 @@ const Project = () => {
                 <div ref={containerRef} className="offset-container">
                     <Marquee text={project.name}/>
                 </div>
-                <img src={project.picture}/>
+                <img src={project.media.picture} alt={project.name}/>
                 <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
                     <Link to={data[next].path} className="subtitle-wrapper">
                         <p>{data[next].name}</p>

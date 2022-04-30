@@ -30,7 +30,8 @@ float random(vec2 co, float t) {
 void main() {
   vec2 newUv = vUv;
   vec2 p = -1.5 * newUv + vec2(0.15); 
-  
+
+  vec3 whey_color = vec3(0.9058823529411765, 0.8823529411764706, 0.8823529411764706);
   float time = uTime * 0.5;
 
   p += texture2D(uInteractiveTexture, vUv).r * 0.08;
@@ -40,7 +41,7 @@ void main() {
   newUv = vec2(length(p) * uProgress);
   
   vec3 text = texture2D(uColorTexture, newUv).rgb * 0.75;
-  vec3 rn = vec3(random(vUv.xy, 1.0));
+  // vec3 rn = vec3(random(vUv.xy, 1.0));
 
-  gl_FragColor = vec4(text, 1.0);//mix(text, rn, 0.12), 1.0);
+  gl_FragColor = vec4(mix(whey_color, text, uProgress * 3.334), 1.0);//mix(text, rn, 0.12), 1.0);
 }`

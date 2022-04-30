@@ -31,7 +31,6 @@ const Title = () => {
                 </div> */}
             </div>
             <Projects/>
-            <Transition/>
         </Topper>
     )
 }

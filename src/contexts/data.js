@@ -12,8 +12,10 @@ const data = [
         name: "Some Flowers For You",
         desc: "Splitting images into particles with React Three Fiber",
         path: 'flowers',
-        picture: flowers,
-        preview: flowers_preview,
+        media: {
+            picture: flowers,
+            preview: flowers_preview,
+        },
         links: [
             {   
                 title: 'Website', 
@@ -29,8 +31,10 @@ const data = [
         name: "Mosaica",
         desc: "CLI to generate mosaics from a set of photos",
         path: 'mosaica',
-        picture: mosaic,
-        preview: mosaic_preview,
+        media: {        
+            picture: mosaic,
+            preview: mosaic_preview,
+        },
         links: [
             {   
                 title: 'Website', 
@@ -45,9 +49,11 @@ const data = [
     {
         name: "Learning Three JS",
         desc: "A collection of small Three JS projects",
-        path: 'learning-three-js',
-        picture: stone,
-        preview: null,
+        path: 'learning-three-js',        
+        media: {        
+            picture: stone,
+            preview: null,
+        },
         links: [
             {   
                 title: 'Website', 
@@ -63,8 +69,10 @@ const data = [
         name: "Lorenz Attractor",
         desc: "A visualization of the 'The Butterfly Effect'",
         path: 'lorebz-attractor',
-        picture: github,
-        preview: null,
+        media: {        
+            picture: github,
+            preview: null,
+        },
         links: [
             {   
                 title: 'Website', 

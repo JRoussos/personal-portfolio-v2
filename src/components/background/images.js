@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react'
-import { useLoader } from '@react-three/fiber'
+import React, { useRef, useLayoutEffect } from 'react'
 
+import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three';
 
 const Post = ({ img }) => {
@@ -14,22 +14,18 @@ const Post = ({ img }) => {
     )
 }
  
-const Images = () => {
-    const images = useRef([...document.querySelectorAll('img')])
-    // const { viewport } = useThree()
-    
-    useEffect(() => {
-        const setPositions = () => {
-            images.current.forEach( img => {
-                const { top, left } = img.getBoundingClientRect()
-                img.positionY = -top + window.innerHeight/2 - img.height/2
-                img.positionX = left - window.innerWidth/2 + img.width/2
-            })
-        }
-        setPositions()
+const Images = ({ images }) => {
+    const loadedImages = useRef(images)
+
+    useLayoutEffect(() => {
+        loadedImages.current.forEach( img => {
+            const { top, left } = img.getBoundingClientRect()
+            img.positionY = -top + window.innerHeight/2 - img.height/2
+            img.positionX = left - window.innerWidth/2 + img.width/2
+        })
     }, [])
 
-    return images.current.map( img => <Post key={img.alt} img={img}/>)
+    return loadedImages.current.map( img => <Post key={img.alt} img={img}/>)
 }
 
 export default Images;

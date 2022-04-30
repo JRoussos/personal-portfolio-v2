@@ -14,7 +14,7 @@ const Post = ({ project, index }) => {
                 <h5>{project.name}</h5>
             </div>
             <div className='image-container'>
-                <img src={project.picture} alt={project.name}/>
+                <img src={project.media.picture} alt={project.name}/>
             </div>
             <div className='desc'>
                 <Anchor as={'div'}>{project.desc}</Anchor>
@@ -25,11 +25,9 @@ const Post = ({ project, index }) => {
 
 const Projects = () => {
     return (
-        <React.Fragment>
-            <div className='projects'>
-                {data.map( (project, i) => <Post key={project.name} project={project} index={i+1}/> )}
-            </div>
-        </React.Fragment>
+        <div className='projects'>
+            {data.map( (project, i) => <Post key={project.name} project={project} index={i+1}/> )}
+        </div>
     )
 }
 

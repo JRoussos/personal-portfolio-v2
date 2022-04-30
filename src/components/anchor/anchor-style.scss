@@ -2,7 +2,7 @@
 
 .link-wrapper {
     padding-top: 10px;
-    border-top: 2px solid $text_black_40;
+    border-top: 2px solid $text_black_40 ;
 
     display: flex;
     justify-content: space-between;
@@ -34,10 +34,10 @@
 }
 
 .white {
-    border-top: 2px solid $text_white_80;
+    border-top: 2px solid rgba( 255, 255, 255, 0.8) !important;
 
     span {
-        color: $text_white_80;
+        color: rgba( 255, 255, 255, 0.8) !important;
     }
 
     svg path {
