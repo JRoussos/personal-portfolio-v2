@@ -4,6 +4,7 @@ import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 import Home from '../pages/home/home'
 import Contact from '../pages/contact/contact'
 import About from '../pages/about/about'
+import Project from '../pages/project/project'
 
 import SmoothScroll from '../utils/SmoothScroll'
 
@@ -34,6 +35,7 @@ const Routes = ({ canvasReady }) => {
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/contact" component={Contact}/>
                     <Route exact path="/about" component={About}/>
+                    <Route exact path="/project/:id" component={Project}/>
                     <Route path="*">
                         <Redirect to="/"/>
                     </Route>

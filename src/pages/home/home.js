@@ -14,21 +14,21 @@ const Title = () => {
     return (
         <Topper>
             <div ref={centerRef} className="center">
-                <div className='title-wrapper'>
+                {/* <div className='title-wrapper'>
                     <h1>J<span>O</span>HN</h1>
                     <h1>RO<span>U</span>SSOS</h1>
-                </div>
+                </div> */}
                 <div className='subtitle left'>
                     <Link to={'/about'} className="subtitle-wrapper">
-                        <p>Hey, I'm a front-end developer most of the time. I also enjoy working out, go on explorations, oh.. and I love coffee</p>
+                        <p>Hey, I'm John, a front-end developer who also enjoys working out, go on explorations, oh.. and I love coffee</p>
                         <Anchor as='div' className='white'>Get to know me</Anchor>
                     </Link>
                 </div>
-                <div className='subtitle right'>
+                {/* <div className='subtitle right'>
                     <div className="subtitle-wrapper">
                         <p className='scroll-indicator'><span>(</span>SCROLL<span>)</span></p>
                     </div>
-                </div>
+                </div> */}
             </div>
             <Projects/>
             <Transition/>

@@ -9,7 +9,7 @@ const cursor_styles = {
     pointerEvents: 'none',
     willChange: 'transform',
     mixBlendMode: 'difference',
-    zIndex: 90
+    zIndex: 200
 }
 
 let initialWidth = 60

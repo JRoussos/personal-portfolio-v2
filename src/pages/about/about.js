@@ -7,6 +7,7 @@ import Spotify from './components/spotify/spotify'
 import { useStore } from '../../contexts/store' 
 
 // import profile from '../../assets/imgs/profile-small.jpeg'
+
 import './about-style.scss'
 
 const Email = ({ mail }) => {
@@ -36,7 +37,7 @@ const About = () => {
         <Topper>
             <div className='about'>
                 <div className='title-wrapper'>
-                    <h1>About .</h1>
+                    <h1>About</h1>
                     <Link to={'/'} className='underline line-hover'>GO BACK</Link>
                 </div>
                 <div className='grid'>

@@ -8,7 +8,7 @@ import './projects-style.scss'
 
 const Post = ({ project, index }) => {
     return (
-        <Link className='post' to={'/contact'}>
+        <Link className='post' to={`/project/${project.path}`}>
             <div className='title-header'>
                 <p>{index.toLocaleString(undefined, { minimumIntegerDigits: 2 })}.</p>
                 <h5>{project.name}</h5>

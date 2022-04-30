@@ -1,0 +1,63 @@
+@import '../../styles/variables';
+
+.project {
+    transform: translateY(10vh);
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+        border-bottom: 2px solid $text_white_80;
+
+        span {
+            font-size: 18px;
+            font-weight: 400;
+
+            margin: 20px 0;
+            // font-weight: 300;
+            width: auto;
+        }
+    }
+
+    span, p {
+        font-family: 'Rubik';
+        font-size: 15px;
+        font-weight: 400;
+
+        overflow: hidden;
+        width: 410px;
+    
+        color: $text_white_80;
+        text-align: justify;
+    }
+
+    a {
+        text-decoration: none;
+        outline: none;
+       
+        color: $text_white_80;
+        cursor: none;
+    }
+
+    .grid {
+        display: grid;
+        width: 100%;
+        
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .title-description {
+            a {
+                color: $text_white_80;
+                cursor: none;
+            }
+        }
+    }
+
+    .offset-container {
+        width: 100vw;
+
+        img {
+            width: 100%;
+        }
+    }
+}

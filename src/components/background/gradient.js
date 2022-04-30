@@ -1,7 +1,7 @@
 import React, { useRef, useMemo, useEffect } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
 
 import gsap from 'gsap';
-import { useFrame, useThree } from '@react-three/fiber'
 
 import { makeTexture, makeTitle } from './makeTexture'
 import { fragment, vertex } from './shaders'
@@ -45,7 +45,7 @@ const Gradient = ({ location, texture }) => {
         uInteractiveTexture: uInteractiveTexture
     }
 
-    return(
+    return (
         <mesh>
             <planeBufferGeometry attach="geometry" args={[viewport.width, viewport.height]}/>
             <shaderMaterial ref={shaderMaterialRef} attach="material" uniforms={uniforms} fragmentShader={fragment} vertexShader={vertex}/>

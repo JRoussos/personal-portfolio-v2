@@ -11,42 +11,70 @@ const data = [
     {
         name: "Some Flowers For You",
         desc: "Splitting images into particles with React Three Fiber",
+        path: 'flowers',
         picture: flowers,
         preview: flowers_preview,
-        links: {
-            live: "https://some-flowers-for-you.netlify.app/",
-            github: "https://github.com/JRoussos/a-reactive-particle-system"
-        }
+        links: [
+            {   
+                title: 'Website', 
+                url: "https://some-flowers-for-you.netlify.app/"
+            },
+            {
+                title: 'Github repository',
+                url: "https://github.com/JRoussos/a-reactive-particle-system"
+            }
+        ]
     },
     {
         name: "Mosaica",
         desc: "CLI to generate mosaics from a set of photos",
+        path: 'mosaica',
         picture: mosaic,
         preview: mosaic_preview,
-        links: {
-            live: "http://mosaica.netlify.com/",
-            github: "https://github.com/JRoussos/mosaic-generator"
-        }
+        links: [
+            {   
+                title: 'Website', 
+                url: "http://mosaica.netlify.com/"
+            },
+            {
+                title: 'Github repository',
+                url: "https://github.com/JRoussos/mosaic-generator"
+            }
+        ]
     },
     {
         name: "Learning Three JS",
         desc: "A collection of small Three JS projects",
+        path: 'learning-three-js',
         picture: stone,
         preview: null,
-        links: {
-            live: "https://learning-three-js.netlify.com/",
-            github: "https://github.com/JRoussos/mosaic-generator"
-        }
+        links: [
+            {   
+                title: 'Website', 
+                url: "http://mosaica.netlify.com/"
+            },
+            {
+                title: 'Github repository',
+                url: "https://github.com/JRoussos/mosaic-generator"
+            }
+        ]
     },
     {
         name: "Lorenz Attractor",
         desc: "A visualization of the 'The Butterfly Effect'",
+        path: 'lorebz-attractor',
         picture: github,
         preview: null,
-        links: {
-            live: "https://learning-three-js.netlify.com/",
-            github: "https://github.com/JRoussos/mosaic-generator"
-        }
+        links: [
+            {   
+                title: 'Website', 
+                url: "http://mosaica.netlify.com/"
+            },
+            {
+                title: 'Github repository',
+                url: "https://github.com/JRoussos/mosaic-generator"
+            }
+        ]
     }
 ]
 

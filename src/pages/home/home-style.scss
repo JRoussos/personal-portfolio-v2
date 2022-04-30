@@ -20,7 +20,7 @@
 
         h1 {
             font-family: 'Bosch';
-            font-size: 9vw;
+            font-size: 10vw;
             font-weight: 600;
     
             color: rgba( 255, 255, 255, 0.8);
@@ -60,6 +60,9 @@
             
                 color: rgba( 255, 255, 255, 0.8);
                 text-align: justify;
+
+                padding: 1em 0;
+                margin: 0;
             }
             
             .scroll-indicator {

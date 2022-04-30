@@ -7,7 +7,7 @@ export const yellow_green = [
 
 export const blue_red = [
     {offset: 0.00, color: '#ebd8c7'}, //whey
-    {offset: 0.35, color: '#6893a4'}, //blue
+    {offset: 0.30, color: '#6893a4'}, //blue
     {offset: 0.70, color: '#c27371'}, //red
     {offset: 0.80, color: '#dccd9b'}, //yellow
     {offset: 0.90, color: '#7c9f90'}, //green

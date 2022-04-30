@@ -7,7 +7,6 @@ import Gradient from './gradient';
 import Images from './images'
 
 import { getScrollValue } from '../../utils/SmoothScroll'
-import { Switch } from 'react-router-dom';
 
 const Meshes = ({ pathname }) => {
     const [ imgLoadingState, setLoadingState ] = useState([])
@@ -31,7 +30,7 @@ const Meshes = ({ pathname }) => {
     return (
         <group ref={groupRef}>
             <Gradient location={pathname}/>
-            {/* <Images images={imgLoadingState}/> */}
+            <Images images={imgLoadingState}/>
         </group>
     )
 }
