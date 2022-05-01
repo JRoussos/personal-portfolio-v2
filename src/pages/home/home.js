@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import Anchor from '../../components/anchor/anchor'
 import Projects from '../../pages/home/components/projects/projects'
 import Topper from '../../components/topper/topper'
-import Transition from './components/transition/transition'
 
 import './home-style.scss'
 

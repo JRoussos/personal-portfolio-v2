@@ -4,29 +4,37 @@ import './marquee-style.scss'
 
 const Marquee = ({ text }) => {
     const animationFrameID = useRef()
-    const current_position = useRef(0)
-    
     const marqueeRef = useRef()
     
-    const animate = useCallback((width) => {
+    const current_position = useRef(0)
+    const width = useRef(0)
+    
+    const animate = useCallback(() => {
         if (!marqueeRef.current) return
         const { delta } = getScrollValue()
         
         current_position.current += 1 + Math.abs(delta)
-        if (current_position.current > width ) current_position.current = 0
+        if (current_position.current > width.current ) current_position.current = 0
 
         marqueeRef.current.style.transform = `translate3d(-${current_position.current}px, 0, 0)`
-        animationFrameID.current = requestAnimationFrame(() => animate(width))
+        animationFrameID.current = requestAnimationFrame(animate)
     }, [])
 
     
     useEffect(() => {
         const initializePositions = () => {
-            animate(marqueeRef.current.clientWidth/2)
+            width.current = marqueeRef.current.clientWidth/2
+            console.log(width.current);
         }
-
+        
+        window.addEventListener('resize', initializePositions)
         setTimeout(initializePositions, 100)
-        return () => cancelAnimationFrame(animationFrameID.current)
+        
+        animate()
+        return () => {
+            window.removeEventListener('resize', initializePositions)
+            cancelAnimationFrame(animationFrameID.current)
+        }
     }, [animate])
 
     return (

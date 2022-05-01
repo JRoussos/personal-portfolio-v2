@@ -15,7 +15,7 @@ const Post = ({ img }) => {
 }
  
 const Images = ({ images }) => {
-    const loadedImages = useRef(images)
+    const loadedImages = useRef([...document.querySelectorAll('img')])
 
     useLayoutEffect(() => {
         loadedImages.current.forEach( img => {

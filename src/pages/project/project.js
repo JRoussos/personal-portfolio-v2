@@ -18,8 +18,15 @@ const Project = () => {
     const [ project ] = useState(data[index])
 
     useEffect(() => {
-        const { x } = containerRef.current.getBoundingClientRect()
-        containerRef.current.style.transform = `translate3d(-${x}px, 0, 0)`
+        const setContainerPosition = () => {        
+            const { x } = containerRef.current.getBoundingClientRect()
+            containerRef.current.children[0].style.transform = `translate3d(-${Math.abs(x)}px, 0, 0)`
+        }
+
+        window.addEventListener('resize', setContainerPosition)
+        setContainerPosition()
+
+        return () => window.removeEventListener('resize', setContainerPosition)
     }, [])
 
     return (
@@ -28,10 +35,6 @@ const Project = () => {
                 <div className='header'>
                     <div style={{display: 'inline-flex'}}>
                         <span>{(index+1).toLocaleString(undefined, { minimumIntegerDigits: 2 })}.</span>
-                        {/* <span>{`\xa0\xa0 — \xa0\xa0`}</span>
-                        <span>
-                            <Link to={data[next].path}>{(next+1).toLocaleString(undefined, { minimumIntegerDigits: 2 })}.</Link>
-                        </span> */}
                     </div>
                     <span><Link to={'/'} className='underline line-hover'>GO BACK</Link></span>
                 </div>
@@ -50,8 +53,10 @@ const Project = () => {
                         ))}
                     </div>
                 </div>
-                <div ref={containerRef} className="offset-container">
-                    <Marquee text={project.name}/>
+                <div ref={containerRef} className="shadow-offset">
+                    <div className="offset-container">
+                        <Marquee text={project.name}/>
+                    </div>
                 </div>
                 <img src={project.media.picture} alt={project.name}/>
                 <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
