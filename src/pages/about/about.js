@@ -4,9 +4,9 @@ import { isMobile } from 'react-device-detect'
 
 import Topper from '../../components/topper/topper'
 import Spotify from './components/spotify/spotify'
-import { useStore } from '../../contexts/store' 
+import Background from './components/background/background'
 
-// import profile from '../../assets/imgs/profile-small.jpeg'
+import { useStore } from '../../contexts/store' 
 
 import './about-style.scss'
 
@@ -55,7 +55,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className='paragraph-wrapper'>
-                        <h5>Who Am I</h5>
+                        <h5 id="profile-header">Who Am I &ensp;[?]</h5>
                         <p>Dolore et pariatur sunt proident laboris officia consectetur. Occaecat sint reprehenderit adipisicing nostrud excepteur incididunt. Tempor enim nulla aute eiusmod aute labore cupidatat enim quis commodo eu fugiat consectetur Lorem. Proident commodo sunt sit mollit voluptate duis incididunt. Aliqua pariatur nulla excepteur officia exercitation amet do.</p>
                         <p>Duis labore ea dolore irure nostrud. Aliqua in pariatur nostrud qui occaecat deserunt fugiat nulla id ex. Proident fugiat pariatur reprehenderit esse et laborum do minim nulla occaecat est sit. Ex amet proident occaecat dolor incididunt officia anim dolor pariatur consequat proident cupidatat ad in.</p>
                     </div>
@@ -73,6 +73,7 @@ const About = () => {
                     </div>
                 </div> */}
             </div>
+            <Background/>
         </Topper>
     )
 }

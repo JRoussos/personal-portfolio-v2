@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback } from "react";
-import useWindowSize from "./useWindowSize";
+import useObserverSize from "./useObserverSize";
 
 const parent_style = {    
     position: 'fixed',
@@ -23,9 +23,9 @@ export const getScrollValue = () => {
 
 const SmoothScroll = ({ children, reload }) => {
     const SCROLL_ID  = useRef(null)
+    const scrollableContainerRef = useRef()
 
-    const scrollableContainerRef = useRef();
-    const size = useWindowSize();
+    const obSize = useObserverSize(document.getElementById('scrollableContainer'))
     
     const setScrollerHeight = () => {
         document.getElementById('root').style.height = `${scrollableContainerRef.current.getBoundingClientRect().height}px`
@@ -56,7 +56,7 @@ const SmoothScroll = ({ children, reload }) => {
 
     useEffect(() => {
         setScrollerHeight();
-    }, [size, reload])
+    }, [obSize, reload])
 
     return (
         <div style={parent_style}>

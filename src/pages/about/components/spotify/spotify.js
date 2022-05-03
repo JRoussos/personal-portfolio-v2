@@ -21,16 +21,24 @@ const Spotify = () => {
 
     const setFadeOutTimer = () => {
         timeoutRef.current = setTimeout(() => {
-            gsap.to(audioRef.current, {id: 'fade_out', duration: getTimeLeft(), volume: 0, onComplete: () => {
-                audioRef.current.currentTime = audioRef.current.duration
-            }})
+            try {
+                gsap.to(audioRef.current, {id: 'fade_out', duration: getTimeLeft(), volume: 0, onComplete: () => {
+                    audioRef.current.currentTime = audioRef.current.duration
+                }})
+            } catch (error) {
+                clearTimeout(timeoutRef.current)                
+            }
         }, (audioRef.current.duration - getTimeLeft()) * 1000)
     }
 
     const setDurationCounter = () => {        
         intervalRef.current = setInterval(() => {
-            const dur = Math.round((audioRef.current.duration - audioRef.current.currentTime))
-            durationRef.current.innerText = (dur/100).toFixed(2).toString().replace('.', ':')
+            try {
+                const dur = Math.round((audioRef.current.duration - audioRef.current.currentTime))
+                durationRef.current.innerText = (dur/100).toFixed(2).toString().replace('.', ':')
+            } catch (error) {
+                clearInterval(intervalRef.current)
+            }
         }, 999)
     }
 

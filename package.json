@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-hook/resize-observer": "^1.2.5",
     "@react-three/drei": "^7.17.2",
     "@react-three/fiber": "^7.0.17",
     "@react-three/postprocessing": "^2.0.5",

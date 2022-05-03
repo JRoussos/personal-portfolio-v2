@@ -40,3 +40,13 @@ main {
     background-image: url('./assets/imgs/grain.png');
     background-blend-mode: exclusion;
 }
+
+#canvas-container {
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
