@@ -1,39 +1,34 @@
-import React, { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useLayoutEffect } from 'react'
 
-import Anchor from '../../components/anchor/anchor'
-import Projects from '../../pages/home/components/projects/projects'
 import Topper from '../../components/topper/topper'
+import Header from './components/header/header'
+import Projects from '../../pages/home/components/projects/projects'
 import Background from './components/background/background'
+
+// import { Link } from 'react-router-dom'
+// import Anchor from '../../components/anchor/anchor'
 
 import './home-style.scss'
 
 const Title = () => {
-    const centerRef = useRef()
+
+    const handleResize = () => {
+        const center = document.getElementById('center')
+        const header = document.querySelector('header')
+
+        const { height } = header.getBoundingClientRect()
+        center.style.height = `${height}px`
+    }
+
+    useLayoutEffect(() => {
+        window.addEventListener('resize', handleResize)
+        handleResize()
+    }, [])
 
     return (
         <Topper>
-            <div ref={centerRef} className="center">
-                {/* <div className='title-wrapper'>
-                    <h1>J<span>O</span>HN</h1>
-                    <h1>RO<span>U</span>SSOS</h1>
-                </div> */}
-                <div className='title-wrapper'>
-                    <h1>J<span>O</span>HN</h1>
-                    <h1>RO<span>U</span>SSOS</h1>
-                </div>
-                <div className='subtitle left'>
-                    <Link to={'/about'} className="subtitle-wrapper">
-                        <p>Hey, I'm John, a front-end developer who also enjoys working out, go on explorations, oh.. and I love coffee</p>
-                        <Anchor as='div' className='white'>Get to know me</Anchor>
-                    </Link>
-                </div>
-                {/* <div className='subtitle right'>
-                    <div className="subtitle-wrapper">
-                        <p className='scroll-indicator'><span>(</span>SCROLL<span>)</span></p>
-                    </div>
-                </div> */}
-            </div>
+            <Header/>
+            <div id='center'/>
             <Projects/>
             <Background/>
         </Topper>

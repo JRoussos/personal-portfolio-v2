@@ -11,7 +11,7 @@
 
     .post {
         height: fit-content;
-        width: max-content;
+        max-width: max-content;
         margin: 30px;
 
         text-decoration: none;
@@ -32,7 +32,7 @@
         }
         
         &:first-child {
-            justify-self: unset;
+            justify-self: baseline;
         }
         
         .title-header {
@@ -61,6 +61,8 @@
 
             img {
                 max-height: 500px;
+                // width: 100%;
+                // max-width: 500px;
                 
                 pointer-events: none;
                 opacity: 0;
@@ -69,32 +71,60 @@
     }
 }
 
-.link-more-wrapper {
-    height: 50vh;
-    width: 100vw;
-
+.projects-footer {
+    height: 30vh;
+    width: 100%;
+    
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: center;
+    
+    position: relative;
 
-    position: absolute;
-    left: 0;
-
-    p {
-        display: inline-block;
-
-        font-family: 'Bosch'; 
-        font-size: 9vw;  
-        font-weight: 200;
+    .footer-wrapper {
+        position: absolute;
+        bottom: 10%;
         
-        text-transform: uppercase;
-        white-space: nowrap;
-        color: $text_black_80;
+        width: 90vw;
+        border-top: 2px rgba($color: #000000, $alpha: 0.6) solid;
 
-        margin: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
 
-        span {
+
+        p {
             display: inline-block;
-            transform: scaleX(2);
+            font-family: 'Rubik';
+    
+            color: $text_black_80;
+
+            br {
+                display: none;
+            }
+        }
+    
+        a {
+            // width: 100%;
+            cursor: none;
+        }
+
+        button {
+            font-family: 'Rubik';
+            font-size: 18px;
+            font-weight: 400;
+
+            margin: 10px 0;
+            padding: 0;
+            color: $text_white_80;
+
+            outline: none;
+            text-decoration: none;
+            cursor: none;
+
+            border: none;
+            border-bottom: 1px $text_white_80 solid;   
+            background: none;
         }
     }
 }

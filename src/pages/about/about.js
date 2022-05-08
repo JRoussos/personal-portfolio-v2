@@ -8,6 +8,7 @@ import Background from './components/background/background'
 
 import { useStore } from '../../contexts/store' 
 
+import profile from '../../assets/imgs/profile-small-01.jpeg'
 import './about-style.scss'
 
 const Email = ({ mail }) => {
@@ -38,7 +39,7 @@ const About = () => {
             <div className='about'>
                 <div className='title-wrapper'>
                     <h1>About</h1>
-                    <Link to={'/'} className='underline line-hover'>GO BACK</Link>
+                    <Link to={'/'}>GO BACK</Link>
                 </div>
                 <div className='grid'>
                     <div className='paragraph-wrapper'>
@@ -47,9 +48,12 @@ const About = () => {
                             <Email mail={email}/>
                             <div className='socials'>
                                 {socials.map( profile => (
-                                    <p key={profile.name}>
-                                        <a title={profile.title} target="_blank" rel="noopener noreferrer" href={profile.url}>{profile.title}</a>
-                                    </p>
+                                    <div key={profile.name} className='social-container'>
+                                        <p>
+                                            <a title={profile.title} target="_blank" rel="noopener noreferrer" href={profile.url}>{profile.title}</a>
+                                            <a title={profile.title} target="_blank" rel="noopener noreferrer" href={profile.url}>{profile.title}</a>
+                                        </p>
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -59,6 +63,12 @@ const About = () => {
                         <p>Dolore et pariatur sunt proident laboris officia consectetur. Occaecat sint reprehenderit adipisicing nostrud excepteur incididunt. Tempor enim nulla aute eiusmod aute labore cupidatat enim quis commodo eu fugiat consectetur Lorem. Proident commodo sunt sit mollit voluptate duis incididunt. Aliqua pariatur nulla excepteur officia exercitation amet do.</p>
                         <p>Duis labore ea dolore irure nostrud. Aliqua in pariatur nostrud qui occaecat deserunt fugiat nulla id ex. Proident fugiat pariatur reprehenderit esse et laborum do minim nulla occaecat est sit. Ex amet proident occaecat dolor incididunt officia anim dolor pariatur consequat proident cupidatat ad in.</p>
                     </div>
+                    {/* <div className='image-container'>
+                        <img src={profile} alt={'this is me btw'}/>
+                        <div className='desc'>
+                            <span>This is me by the way</span>
+                        </div>
+                    </div> */}
                     <div className='paragraph-wrapper'>
                         <h5>Hobbies</h5>
                         <p>Culpa ipsum nulla occaecat nostrud consequat consequat. Excepteur consequat tempor anim laborum sit amet. Labore aute sunt culpa qui minim quis aliquip sit. Occaecat nisi cupidatat veniam dolore qui nostrud officia laboris eu nulla velit.</p>
@@ -66,12 +76,6 @@ const About = () => {
                         <Spotify/>
                     </div>
                 </div>
-                {/* <div className='image-container'>
-                    <img src={profile} alt={'this is me btw'}/>
-                    <div className='desc'>
-                        <span>This is me by the way</span>
-                    </div>
-                </div> */}
             </div>
             <Background/>
         </Topper>

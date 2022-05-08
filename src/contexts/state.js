@@ -5,7 +5,7 @@ const initialState = {
     socials: [
         { name: 'tw', title: 'Twitter', url: 'https://twitter.com/giannhs_r' },
         { name: 'ig', title: 'Instagram', url: 'https://www.instagram.com/giannhs_r' },
-        { name: 'fb', title: 'Facebook', url: 'https://facebook.com/giannhs.roussos.s' }
+        { name: 'gh', title: 'Github', url: 'https://www.github.com/JRoussos' }
     ],
     imagesArray: []
 }

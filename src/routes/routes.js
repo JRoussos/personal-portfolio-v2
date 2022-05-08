@@ -29,7 +29,7 @@ const Routes = ({ canvasReady }) => {
 
     return (
         <SmoothScroll reload={[currentLocation, canvasReady]}>
-            <div style={{ width: "min(80%, 1500px)" }} className={transitionState} onAnimationEnd={handleAnimationEnd}>
+            <div style={{ width: "min(90%, 1500px)" }} className={transitionState} onAnimationEnd={handleAnimationEnd}>
                 <Switch location={currentLocation} key={currentLocation.key}>
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/about" component={About}/>

@@ -18,7 +18,7 @@ const data = [
         },
         links: [
             {   
-                title: 'Website', 
+                title: 'Visit website', 
                 url: "https://some-flowers-for-you.netlify.app/"
             },
             {
@@ -37,7 +37,7 @@ const data = [
         },
         links: [
             {   
-                title: 'Website', 
+                title: 'Visit website', 
                 url: "http://mosaica.netlify.com/"
             },
             {
@@ -56,7 +56,7 @@ const data = [
         },
         links: [
             {   
-                title: 'Website', 
+                title: 'Visit website', 
                 url: "http://mosaica.netlify.com/"
             },
             {
@@ -75,7 +75,7 @@ const data = [
         },
         links: [
             {   
-                title: 'Website', 
+                title: 'Visit website', 
                 url: "http://mosaica.netlify.com/"
             },
             {

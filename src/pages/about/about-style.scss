@@ -2,6 +2,7 @@
 
 .about {
     transform: translateY(10vh);
+    margin-bottom: 15vh;
 
     .title-wrapper {
         width: 100%;
@@ -27,7 +28,7 @@
             font-size: 18px;
             font-weight: 400;
 
-            margin: 20px 0;
+            margin: 10px 0;
             color: $text_white_80;
 
             outline: none;
@@ -80,6 +81,24 @@
                     transform: translate3d(0, -20px, 0); // rotate(-15deg)
                 }
             }
+
+            .socials {
+                p {
+                    height: 20px;
+                    // padding: 1em 0;
+                    // margin: 0;
+
+                    &:hover > a {
+                        transform: translate3d(0, -20px, 0);
+                    }
+                }
+                
+                a {
+                    transition: transform 0.2s ease-in-out;
+                    display: inline-block;
+                }
+                
+            }
         }
         
   
@@ -125,7 +144,6 @@
         width: fit-content;
 
         img {
-            filter: saturate(0.8);
             max-height: 410px;
         }
 

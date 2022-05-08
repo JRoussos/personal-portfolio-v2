@@ -8,7 +8,7 @@ const parent_style = {
 }
 
 const config = {
-    velocity: 0.08,
+    velocity: 0.06,
     current: 0,
     previous: 0,
     requestScrollEvent: 0
@@ -16,7 +16,7 @@ const config = {
 
 export const getScrollValue = () => {
     return {
-        scroll: config.previous, 
+        scroll: config.previous + (config.current - config.previous) * config.velocity, 
         delta: (config.current - config.previous) * config.velocity
     }
 }

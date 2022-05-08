@@ -46,11 +46,13 @@ const Project = () => {
                         <p>Ut ad fugiat consequat in tempor quis reprehenderit elit. Velit aliqua tempor quis non deserunt fugiat. Culpa ipsum commodo cillum nulla dolore consequat anim aute proident dolor minim.</p>
                     </div>
                     <div className='title-description'>
-                        {project.links.map(link => (
-                            <a key={link.title} href={link.url} target="_blank" rel="noopener noreferrer">
-                                <p>{link.title}</p>
-                            </a>
-                        ))}
+                        <div className='links'>
+                            {project.links.map(link => (
+                                <a key={link.title} href={link.url} target="_blank" rel="noopener noreferrer">
+                                    <p>{link.title}</p>
+                                </a>
+                            ))}
+                        </div>
                     </div>
                 </div>
                 <div ref={containerRef} className="shadow-offset">

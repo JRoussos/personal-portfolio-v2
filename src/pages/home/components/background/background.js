@@ -6,7 +6,7 @@ import { useStore } from '../../../../contexts/store';
 import Meshes from './meshes'
 
 const FallbackElement = () => {
-    const { dispatch } = useStore()    
+    const { dispatch } = useStore()
     
     useEffect(() => {
         return () => dispatch({ type: 'CHANGE_CANVAS_LOADED', canvasReady: true })
@@ -23,16 +23,10 @@ const Background = () => {
 		position: [0, 0, 100]
 	}
 
-    const { dispatch } = useStore()    
-    
-    useEffect(() => {
-        return () => dispatch({ type: 'CHANGE_CANVAS_LOADED', canvasReady: false})
-    }, [dispatch])
-
     return createPortal(
         <div id="canvas-container">
             <Suspense fallback={<FallbackElement/>}>
-                <Canvas dpr={[window.devicePixelRatio, 2]} camera={cameraProps} colorManagement={true}>
+                <Canvas dpr={[window.devicePixelRatio, 2]} camera={cameraProps}>
                     <Meshes/>
                 </Canvas>
             </Suspense>
