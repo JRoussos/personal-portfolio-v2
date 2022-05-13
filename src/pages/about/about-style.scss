@@ -33,7 +33,6 @@
 
             outline: none;
             text-decoration: none;
-            cursor: none;
         }
 
     }
@@ -63,6 +62,8 @@
                     margin: 0;
                     transform-origin: left;
                     text-decoration: underline;
+
+                    cursor: pointer;
     
                     &:nth-child(2) {
                         text-decoration: none;
@@ -133,8 +134,6 @@
             
                 color: $text_white_80;
                 text-align: justify;
-
-                cursor: none;
             }
         }
     }

@@ -57,18 +57,18 @@ const data = [
         links: [
             {   
                 title: 'Visit website', 
-                url: "http://mosaica.netlify.com/"
+                url: "https://learning-three-js.netlify.app/"
             },
             {
                 title: 'Github repository',
-                url: "https://github.com/JRoussos/mosaic-generator"
+                url: "https://github.com/JRoussos/learning-three-js"
             }
         ]
     },
     {
         name: "Lorenz Attractor",
         desc: "A visualization of the 'The Butterfly Effect'",
-        path: 'lorebz-attractor',
+        path: 'lorenz-attractor',
         media: {        
             picture: github,
             preview: null,
@@ -76,11 +76,11 @@ const data = [
         links: [
             {   
                 title: 'Visit website', 
-                url: "http://mosaica.netlify.com/"
+                url: "https://lorenz-attractor-visualization.netlify.app/"
             },
             {
                 title: 'Github repository',
-                url: "https://github.com/JRoussos/mosaic-generator"
+                url: "https://github.com/JRoussos/lorenz-attractor"
             }
         ]
     }

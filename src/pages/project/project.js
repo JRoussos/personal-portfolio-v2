@@ -50,6 +50,7 @@ const Project = () => {
                             {project.links.map(link => (
                                 <a key={link.title} href={link.url} target="_blank" rel="noopener noreferrer">
                                     <p>{link.title}</p>
+                                    <p>{link.title}</p>
                                 </a>
                             ))}
                         </div>

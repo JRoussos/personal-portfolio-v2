@@ -12,21 +12,21 @@ const cursor_styles = {
     zIndex: 200
 }
 
-export const mouseListeners = handle => {
-    const handleActive = () => {
-        
-    }
+// export const mouseListeners = handle => {
+//     const handleActive = () => {
+//         gsap.to('#rect', { duration: 0.3, fillOpacity: 0.8 })
+//     }
 
-    const handleDeactive = () => {
+//     const handleDeactive = () => {
+//         gsap.to('#rect', { duration: 0.3, fillOpacity: 0 })
+//     }
 
-    }
-
-    document.querySelectorAll('a').forEach( element => {
-            element.addEventListener('mouseenter', handleActive )
-            element.addEventListener('mouseleave', handleDeactive )
-        }
-    )
-}
+//     document.querySelectorAll('a').forEach( element => {
+//             element.addEventListener('mouseenter', handleActive )
+//             element.addEventListener('mouseleave', handleDeactive )
+//         }
+//     )
+// }
 
 const Mouse = () => {
     const mousePreviousPosition = useRef({x: 0, y: 0})
@@ -86,7 +86,7 @@ const Mouse = () => {
         window.addEventListener('mousemove', handleMouseMove)
         window.addEventListener('mouseout', handleMouseLeave)
 
-        mouseListeners()
+        // mouseListeners()
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove)
@@ -97,7 +97,7 @@ const Mouse = () => {
 
     return (
         <svg id="cursor" width="220" height="220" viewBox="0 0 220 220" fill="none" style={cursor_styles}>
-            <rect id="rect" x="80" y="80" width="60" height="60" rx="30" stroke="white" strokeOpacity="0.8" strokeWidth="2px" fillOpacity="0.8"/>
+            <rect id="rect" x="80" y="80" width="60" height="60" rx="30" stroke="white" strokeOpacity="0.8" strokeWidth="2px" fillOpacity="0" fill="white"/>
         </svg>
     )
 }

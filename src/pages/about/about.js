@@ -8,7 +8,7 @@ import Background from './components/background/background'
 
 import { useStore } from '../../contexts/store' 
 
-import profile from '../../assets/imgs/profile-small-01.jpeg'
+// import profile from '../../assets/imgs/profile-small-01.jpeg'
 import './about-style.scss'
 
 const Email = ({ mail }) => {

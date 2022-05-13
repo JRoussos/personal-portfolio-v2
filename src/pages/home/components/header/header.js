@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Anchor from '../../../../components/anchor/anchor'
+// import Anchor from '../../../../components/anchor/anchor'
 
 import './header-style.scss'
 

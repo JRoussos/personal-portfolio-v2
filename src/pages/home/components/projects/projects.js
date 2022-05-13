@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Anchor from '../../../../components/anchor/anchor'
 import data from '../../../../contexts/data'
-import { useStore } from '../../../../contexts/store'
+// import { useStore } from '../../../../contexts/store'
 
 import './projects-style.scss'
 
@@ -25,7 +25,7 @@ const Post = ({ project, index }) => {
 }
 
 const Projects = () => {
-    const { socials } = useStore().state
+    // const { socials, email } = useStore().state
     return (
         <React.Fragment>
             <div className='projects'>
@@ -37,7 +37,17 @@ const Projects = () => {
                         <p>see more on github</p>
                     </a> */}
                     {/* <div> */}
-                        <p>Find me anywhere,<br/> talk to me about anything.</p>
+                    {/* <div>
+                        <a target="_blank" rel="noopener noreferrer" href={`mailto:${email}`}>
+                            <p>mail</p>
+                        </a>
+                        {socials.map( profile => (
+                            <a key={profile.name} target="_blank" rel="noopener noreferrer" href={profile.url}>
+                                <p>{profile.name}</p>
+                            </a>
+                        ))}
+                    </div> */}
+                        {/* <p>Find me anywhere,<br/> talk to me about anything.</p> */}
                         {/* <button onClick={() => window.scrollTo({top: 0})}>Top</button>
                     </div> */}
                 </div>
