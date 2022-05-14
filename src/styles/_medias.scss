@@ -62,17 +62,25 @@
         }
     }
 
-    .project .grid {
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
+    .project 
+    
+        .grid {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
 
-        .title-description {
-            width: 100%;
-            
-            p {
-                width: auto;
+            .title-description {
+                width: 100%;
+                
+                p {
+                    width: auto;
+                }
             }
+        }
+
+    .footer .footer-wrapper .right, .left {
+        p::after {
+            content: none !important;
         }
     }
 }

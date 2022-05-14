@@ -12,7 +12,7 @@ import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    { isMobile || <Mouse/> }
+    { !isMobile && <Mouse/> }
     <StateProvider>
       <App/>
     </StateProvider>

@@ -12,7 +12,7 @@ const Transition = () => {
             gsap.timeline()
                 .to(pathRef.current, { duration: 0.8, attr: { d: "M 0 100 V 50 Q 50 0 100 50 V 100 z" }, ease: 'power2.in'})
                 .to(pathRef.current, { duration: 0.4, attr: { d: "M 0 100 V 0  Q 50 0 100 0  V 100 z" }, ease: 'power2.out'})
-                .to(pathRef.current, { duration: 0.5, attr: { fill: '#e7e1e1'}}, '-=0.35')
+                .to(pathRef.current, { duration: 1.2, attr: { fill: '#e7e1e1'}}, '-=1.2')
         }
 
         window.addEventListener('dblclick', handleClick)

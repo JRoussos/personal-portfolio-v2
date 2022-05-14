@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
+import { gsap } from 'gsap'
 
 import Home from '../pages/home/home'
 import About from '../pages/about/about'
@@ -16,7 +17,10 @@ const Routes = ({ canvasReady }) => {
     const [transitionState, setTransitionState] = useState("fadeIn")
 
     useEffect(() => {
-        if (routerLocation !== currentLocation) setTransitionState("fadeOut")
+        if (routerLocation !== currentLocation) {
+            setTransitionState("fadeOut")
+            gsap.to('#canvas-container', {duration: 1, opacity: 0, ease: 'sine.inOut'})
+        }
 
     }, [routerLocation, currentLocation])
 

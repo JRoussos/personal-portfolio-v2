@@ -8,7 +8,7 @@ import Background from './components/background/background'
 
 import { useStore } from '../../contexts/store' 
 
-// import profile from '../../assets/imgs/profile-small-01.jpeg'
+import profile from '../../assets/imgs/profile-small-01.jpeg'
 import './about-style.scss'
 
 const Email = ({ mail }) => {
@@ -59,25 +59,25 @@ const About = () => {
                         </div>
                     </div>
                     <div className='paragraph-wrapper'>
-                        <h5 id="profile-header">Who Am I &ensp;[?]</h5>
-                        <p>Dolore et pariatur sunt proident laboris officia consectetur. Occaecat sint reprehenderit adipisicing nostrud excepteur incididunt. Tempor enim nulla aute eiusmod aute labore cupidatat enim quis commodo eu fugiat consectetur Lorem. Proident commodo sunt sit mollit voluptate duis incididunt. Aliqua pariatur nulla excepteur officia exercitation amet do.</p>
-                        <p>Duis labore ea dolore irure nostrud. Aliqua in pariatur nostrud qui occaecat deserunt fugiat nulla id ex. Proident fugiat pariatur reprehenderit esse et laborum do minim nulla occaecat est sit. Ex amet proident occaecat dolor incididunt officia anim dolor pariatur consequat proident cupidatat ad in.</p>
+                        <h5 id="profile-header" className={!isMobile ? 'question' : ''}>Who Am I</h5>
+                        <p>I'm a Greek fron-end developer. I was born and raised on a small Cycladic island called Syros. Currently studying at the University of Thessaly at the department of computer science and telecommunications.</p>
+                        <p>I have always loved programming and creating cool stuff through code. I started web development almost {new Date().getFullYear() - 2018} years ago and since then I have learned so much, went from basic static sites, to animating the web with React JS, to WebGL and 3D effects. But still I know that they are always more to learn and I couldn't be more excited about it.</p>
                     </div>
-                    {/* <div className='image-container'>
+                    {isMobile && <div className='image-container'>
                         <img src={profile} alt={'this is me btw'}/>
                         <div className='desc'>
                             <span>This is me by the way</span>
                         </div>
-                    </div> */}
+                    </div>}
                     <div className='paragraph-wrapper'>
                         <h5>Hobbies</h5>
-                        <p>Culpa ipsum nulla occaecat nostrud consequat consequat. Excepteur consequat tempor anim laborum sit amet. Labore aute sunt culpa qui minim quis aliquip sit. Occaecat nisi cupidatat veniam dolore qui nostrud officia laboris eu nulla velit.</p>
-                        <p>Id do ex consequat commodo sit nostrud et ea. Cupidatat ex cupidatat elit sunt officia dolor amet amet Lorem nostrud. Mollit amet dolor culpa officia ad elit velit non deserunt adipisicing cillum eiusmod. Exercitation dolor in commodo et. Ea nostrud et pariatur ex fugiat aliqua tempor elit commodo.</p>
+                        <p>I am a pretty chill guy. I like going to the gym and the whole fit lifestyle, being in nature, going on adventures like climbing mountains, getting lost in a newly visited place. I'm realy intersted in space, stuff like wormholes, black holes and super novas, I have a natural curiosity in finding out how things work.</p>
+                        <p>Music is a big part of my daily life, I love rock, folk, indie pop, blues, jazz, 60s, 70s.. and the list goes on. I do believe that music can have a huge impact on someones mood and you can learn a lot by listening to someones playlist, so take a peak at mine.</p>
                         <Spotify/>
                     </div>
                 </div>
             </div>
-            <Background/>
+            {!isMobile && <Background/>}
         </Topper>
     )
 }

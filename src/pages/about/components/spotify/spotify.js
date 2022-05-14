@@ -134,7 +134,7 @@ const Spotify = () => {
         <div className='spotify-container'>
             <div className="info-wrapper">
                 <p ref={titleRef} className="info-title ">Loading...</p>
-                <a target="_blank" rel="noopener noreferrer" href={playlist?.external_urls?.spotify}>
+                <a target="_blank" rel="noopener noreferrer" href={playlist?.external_urls?.spotify} style={{ overflow: 'visible' }}>
                     <svg width="51" height="51" viewBox="0 0 51 51" fill="none">
                         <path d="M40.7988 5.97753H2.43625V0.330078H50.4396V48.3334H44.7921V9.97088L4.43293 50.3301L0.439575 46.3367L40.7988 5.97753Z" fill="black" fillOpacity="0.8"/>
                     </svg>

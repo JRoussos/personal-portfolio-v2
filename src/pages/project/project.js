@@ -2,11 +2,11 @@ import React, { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-import Anchor from '../../components/anchor/anchor'
 import Marquee from '../../components/marquee/marquee'
 import Topper from '../../components/topper/topper'
 
 import data from '../../contexts/data'
+
 import './project-style.scss'
 
 const Project = () => {
@@ -14,8 +14,10 @@ const Project = () => {
     const { id }       = useParams()
 
     const [ index ] = useState(data.findIndex(_ => _.path === id))
-    const [ next ]  = useState((index+1)%data.length)
     const [ project ] = useState(data[index])
+    
+    const [ next ]  = useState((index+1)%data.length)
+    const [ prev ]  = useState((index < 1 ? data.length-1 : index-1 )%data.length)
 
     useEffect(() => {
         const setContainerPosition = () => {        
@@ -36,20 +38,18 @@ const Project = () => {
                     <div style={{display: 'inline-flex'}}>
                         <span>{(index+1).toLocaleString(undefined, { minimumIntegerDigits: 2 })}.</span>
                     </div>
-                    <span><Link to={'/'} className='underline line-hover'>GO BACK</Link></span>
+                    <span><Link to={'/'}>GO BACK</Link></span>
                 </div>
                 <div className='grid'>
-                    <div className='title-description'>
-                        <p>Enim officia ut minim dolor. Ea aliquip ipsum aute occaecat Lorem voluptate eiusmod ex nisi sit commodo. Et velit nulla esse proident qui nulla. Laboris aliqua mollit officia esse veniam aliquip consequat eiusmod in pariatur labore sunt.</p>
-                    </div>
-                    <div className='title-description'>
-                        <p>Ut ad fugiat consequat in tempor quis reprehenderit elit. Velit aliqua tempor quis non deserunt fugiat. Culpa ipsum commodo cillum nulla dolore consequat anim aute proident dolor minim.</p>
-                    </div>
+                    {project.info.map( text => (
+                        <div key={text.charAt(0)} className='title-description'>
+                            <p>{text}</p>
+                        </div>
+                    ))}
                     <div className='title-description'>
                         <div className='links'>
                             {project.links.map(link => (
                                 <a key={link.title} href={link.url} target="_blank" rel="noopener noreferrer">
-                                    <p>{link.title}</p>
                                     <p>{link.title}</p>
                                 </a>
                             ))}
@@ -62,11 +62,18 @@ const Project = () => {
                     </div>
                 </div>
                 <img src={project.media.picture} alt={project.name}/>
-                <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
-                    <Link to={data[next].path} className="subtitle-wrapper">
-                        <p>{data[next].name}</p>
-                        <Anchor as='div' className='white'>Next Project</Anchor>
-                    </Link>
+
+                <div className='footer'>
+                    <div className='footer-wrapper'>
+                        <Link to={data[prev].path} className="subtitle-wrapper left">
+                            <span className='arrow'></span>
+                            <p>Previous</p>
+                        </Link>
+                        <Link to={data[next].path} className="subtitle-wrapper right">
+                            <p>Next</p>
+                            <span className='arrow'></span>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </Topper>
