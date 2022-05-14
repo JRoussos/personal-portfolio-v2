@@ -61,8 +61,11 @@ const Project = () => {
                         <Marquee text={project.name}/>
                     </div>
                 </div>
-                <img src={project.media.picture} alt={project.name}/>
-
+                <div className='grid-images'>
+                    {Object.values(project.media).map((img, i) => (
+                        <img key={`${project.name} ${i}`} src={img} alt={`${project.name} ${i}`}/>
+                    ))}
+                </div>
                 <div className='footer'>
                     <div className='footer-wrapper'>
                         <Link to={data[prev].path} className="subtitle-wrapper left">

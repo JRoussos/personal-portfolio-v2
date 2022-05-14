@@ -13,7 +13,7 @@ const Marquee = ({ text }) => {
         if (!marqueeRef.current) return
         const { delta } = getScrollValue()
         
-        current_position.current += 1 + Math.abs(delta) * (window.innerWidth /marqueeRef.current.clientWidth)
+        current_position.current += 1 + Math.abs(delta)
         if (current_position.current > width.current ) current_position.current = 0
 
         marqueeRef.current.style.transform = `translate3d(-${current_position.current}px, 0, 0)`

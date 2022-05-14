@@ -1,11 +1,29 @@
-import mosaic from '../assets/imgs/projects/mosaic-small.jpg'
-import mosaic_preview from '../assets/imgs/projects/mosaic-preview.jpg'
+import mosaica_0 from '../assets/imgs/projects/mosaica/mosaica.jpg'
+import mosaica_1 from '../assets/imgs/projects/mosaica/mosaica (5).jpg'
+import mosaica_2 from '../assets/imgs/projects/mosaica/mosaica (1).jpg'
+import mosaica_3 from '../assets/imgs/projects/mosaica/mosaica (2).jpg'
+import mosaica_4 from '../assets/imgs/projects/mosaica/mosaica (3).jpg'
 
-import flowers from '../assets/imgs/projects/flowers-small.png'
-import flowers_preview from '../assets/video/flowers-preview.mp4'
+import flowers_0 from '../assets/imgs/projects/flowers/flowers (3).png'
+import flowers_1 from '../assets/imgs/projects/flowers/flowers (1).png'
+import flowers_2 from '../assets/imgs/projects/flowers/flowers (4).jpg'
+import flowers_5 from '../assets/imgs/projects/flowers/flowers (9).jpg'
+import flowers_6 from '../assets/imgs/projects/flowers/flowers (2).png'
+import flowers_7 from '../assets/imgs/projects/flowers/flowers (8).jpg'
 
-import stone from '../assets/imgs/projects/stone-small.jpg'
-import github from '../assets/imgs/projects/lorenz.png'
+
+import learning_0 from '../assets/imgs/projects/learning/learning.jpg'
+import learning_1 from '../assets/imgs/projects/learning/learning (1).png'
+import learning_2 from '../assets/imgs/projects/learning/learning (2).png'
+import learning_3 from '../assets/imgs/projects/learning/learning (3).png'
+import learning_4 from '../assets/imgs/projects/learning/learning (4).png'
+
+import lorenz_0 from '../assets/imgs/projects/lorenz/lorenz.png'
+import lorenz_1 from '../assets/imgs/projects/lorenz/lorenz (1).png'
+import lorenz_2 from '../assets/imgs/projects/lorenz/lorenz (7).png'
+import lorenz_3 from '../assets/imgs/projects/lorenz/lorenz (3).png'
+import lorenz_5 from '../assets/imgs/projects/lorenz/lorenz (5).png'
+import lorenz_6 from '../assets/imgs/projects/lorenz/lorenz (6).png'
 
 const data = [
     {
@@ -17,8 +35,12 @@ const data = [
         ],
         path: 'flowers',
         media: {
-            picture: flowers,
-            preview: flowers_preview,
+            picture: flowers_0,
+            l7: flowers_7,
+            l2: flowers_2,
+            l1: flowers_1,
+            l6: flowers_6,
+            l5: flowers_5,
         },
         links: [
             {   
@@ -40,8 +62,11 @@ const data = [
         ],
         path: 'mosaica',
         media: {        
-            picture: mosaic,
-            preview: mosaic_preview,
+            picture: mosaica_0,
+            l1: mosaica_1,
+            l2: mosaica_2,
+            l3: mosaica_3,
+            l4: mosaica_4,
         },
         links: [
             {   
@@ -63,8 +88,11 @@ const data = [
         ],
         path: 'learning-three-js',        
         media: {        
-            picture: stone,
-            preview: null,
+            picture: learning_0,
+            l1: learning_1,
+            l2: learning_2,
+            l3: learning_3,
+            l4: learning_4,
         },
         links: [
             {   
@@ -86,8 +114,12 @@ const data = [
         ],
         path: 'lorenz-attractor',
         media: {        
-            picture: github,
-            preview: null,
+            picture: lorenz_0,
+            l2: lorenz_2,
+            l3: lorenz_3,
+            l1: lorenz_1,
+            l5: lorenz_5,
+            l6: lorenz_6,
         },
         links: [
             {   
