@@ -1,6 +1,8 @@
 # The second version of my personal portfolio site 
+Check it out at: [johnroussos.info](https://johnroussos.info/) 
 
-### Check it out at: [johnroussos.info](https://johnroussos.info/) 
+## UPDATE 
+I'm now in the process of updating the site!
 
 ## The what
 
