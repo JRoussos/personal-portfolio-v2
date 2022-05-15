@@ -4,7 +4,8 @@ import useObserverSize from "./useObserverSize";
 const parent_style = {    
     position: 'fixed',
     overflow: 'hidden',
-    inset: 0
+    height: '100%',
+    width: '100%'
 }
 
 const config = {

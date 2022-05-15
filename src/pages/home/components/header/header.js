@@ -23,7 +23,7 @@ const Header = () => {
                 </svg>
                 <div className='subtitle'>
                     <Link to={'/about'} className="subtitle-wrapper">
-                        <p>Hey, I'm John, a front-end developer who also enjoys working out, go on explorations, oh.. and I love coffee</p>
+                        <p>Hey, I'm John, a front-end developer who also enjoys working out, going on explorations, oh.. and I love coffee</p>
                         <p style={{paddingTop: 0}}>Get to know me<span className='arrow'></span></p>
                     </Link>
                 </div>

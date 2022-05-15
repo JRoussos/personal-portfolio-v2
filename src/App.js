@@ -34,7 +34,7 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            {!loadedImages && canvasReady && <Loading />}
+            {!loadedImages && !canvasReady && <Loading />}
             <Routes />
         </BrowserRouter>
     )

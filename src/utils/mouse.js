@@ -51,7 +51,9 @@ const Mouse = () => {
         quickSet.current.rotate(rotation)
     }, [])
 
-    const handleMouseLeave = useCallback(() => {
+    const handleMouseLeave = useCallback( event => {
+        event.stopPropagation()
+
         isMouseOffScreen.current = true
         gsap.to('#cursor', { id: 'hideCursor', duration: 0.5, delay: 1, opacity: 0 })
     }, [])
@@ -83,14 +85,14 @@ const Mouse = () => {
 
         gsap.ticker.add(onTick)
         
-        window.addEventListener('mousemove', handleMouseMove)
-        window.addEventListener('mouseout', handleMouseLeave)
+        document.documentElement.addEventListener('mousemove', handleMouseMove)
+        document.documentElement.addEventListener('mouseleave', handleMouseLeave)
 
         // mouseListeners()
 
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove)
-            window.removeEventListener('mouseout', handleMouseLeave)                
+            document.documentElement.removeEventListener('mousemove', handleMouseMove)
+            document.documentElement.removeEventListener('mouseleave', handleMouseLeave)                
         }
 
     }, [onTick, handleMouseMove, handleMouseLeave])
